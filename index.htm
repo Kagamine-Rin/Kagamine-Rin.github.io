@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<script src="jquery.js"></script>
+<script>
+	var hh=[`[00:00.00]ハロハワユ
+[00:03.00]作词 & 作曲 : ナノウ(ほえほえP)
+[00:06.00]歌 : 初音ミク
+[00:10.00]
+[00:11.31]ハロ
+[00:12.54]窓を开けて　小さく呟いた
+[00:16.47]ハワユ
+[00:17.26]谁もいない　部屋で一人
+[00:21.84]モーニン
+[00:22.86]朝が来たよ　土砂降りの朝が
+[00:26.90]ティクタク
+[00:27.54]私のネジを　谁か巻いて
+[00:36.95]
+[00:45.38]
+[00:53.71]ハロ
+[00:55.50]昔のアニメにそんなのいたっけな
+[00:59.67]ハワユ
+[01:00.54]羡ましいな　皆に爱されて
+[01:04.56]スリーピン
+[01:05.62]马鹿な事言ってないで支度をしなくちゃ
+[01:09.46]クライン
+[01:10.70]涙の迹を隠す为
+[01:14.10]
+[01:14.15]もう口癖になった「まぁいっか」
+[01:17.45]昨日の言叶がふと头を过る
+[01:19.63]「もう君には全然期待してないから」
+[01:25.90]そりゃまぁ私だって
+[01:27.64]自分に期待などしてないけれど
+[01:30.80]アレは一体どういうつもりですか
+[01:35.31]
+[01:35.35]喉元まで出かかった言叶
+[01:40.59]口をついて出たのは嘘
+[01:45.15]こうして今日も私は贵重な
+[01:50.82]言叶を浪费して生きてゆく
+[01:54.78]何故隠してしまうのですか
+[01:54.88]
+[01:57.89]笑われるのが怖いのですか
+[01:59.90]谁にも会いたくないのですか
+[02:03.06]それ本当ですか
+[02:05.36]暧昧という名の海に溺れて
+[02:08.11]息も出来ないほど苦しいの
+[02:10.76]少し声が闻きたくなりました
+[02:13.31]本当に弱いな
+[02:16.04]
+[02:21.27]一向に进まない支度の途中
+[02:23.82]朦胧とした头で思う
+[02:26.44]「もう理由を付けて休んでしまおうかな」
+[02:31.56]いやいや分かってますって
+[02:33.35]何となく言ってみただけだよ
+[02:36.40]分かってるから怒らないでよ
+[02:40.00]
+[02:40.93]幸せだろうと　不幸せだろうと
+[02:46.11]平等に　残酷に　朝日は升る
+[02:50.75]生きていくだけで精一杯の私に
+[02:56.50]これ以上何を望むというの
+[03:00.74]
+[03:01.06]何故気にしてしまうのですか
+[03:03.34]本当は爱されたいのですか
+[03:05.80]その手を离したのは谁ですか
+[03:08.93]気が付いてますか
+[03:10.98]人生にタイムカードがあるなら
+[03:13.55]终わりの时间は何时なんだろう
+[03:16.33]私が生きた分の给料は
+[03:18.35]谁が払うんですか
+[03:25.89]
+[03:31.53]サンキュー
+[03:32.47]ありがとうって言いたいの
+[03:36.45]サンキュー
+[03:37.25]ありがとうって言いたいよ
+[03:41.52]サンキュー
+[03:42.81]一度だけでも良いから
+[03:46.95]心の底から大泣きしながら
+[03:48.98]ありがとうって言いたいの
+[03:51.79]
+[03:54.18]何故隠してしまうのですか
+[03:56.29]本当は闻いて欲しいのですか
+[03:58.95]绝対に笑ったりしないから
+[04:01.73]话してみませんか
+[04:03.96]口を开かなければ分からない
+[04:06.83]思ってるだけでは伝わらない
+[04:09.25]なんて面倒くさい生き物でしょう
+[04:12.05]人间というのは
+[04:13.76]
+[04:16.57]ハロ　ハワユ
+[04:21.54]ハロ　ハワユ
+[04:26.34]ハロ　ハワユ
+[04:29.50]あなたに　ハロ　ハワユ
+[04:34.70]
+[04:37.78]-END-`]
+</script>
+<head>
+	<title>Hello,world!!</title>
+</head>
+<body>
+<div id='koko'>
+	<p align="center">KO KO</p>
+	<button onclick="fn()" id="van">Sing</button>
+	<canvas height="10" width="10" id="deep">
+		<p>Your Browser Does Not Support HTML5.</p>
+	</canvas>
+</div>
+<script>
+var fn = function()
+{
+	//var dark=document.getElementById('van');
+	//console.log(para.innerHTML);
+	//var deep=document.createElement('h2');
+	//deep.id = 'deep';
+	//var p = document.getElementById('fantasy');
+	//deep.innerHTML = p.value;
+	//deep.style.fontSize = '35px';
+	//dark.appendChild(deep);
+
+	// canvas test
+	var van=document.getElementById('van');
+	var deep=document.getElementById('deep')
+	var koko=document.getElementById('koko');
+	koko.removeChild(deep);
+	koko.removeChild(van);
+	var canvas=document.createElement('canvas');
+	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth;
+	koko.appendChild(canvas);
+	var ctx=canvas.getContext('2d');
+	ctx.fillStyle = '#DDDDDD';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+	ctx.shadowOffsetX = 2;
+	ctx.shadowOffsetY = 2;
+	ctx.shadowBlur = 2;
+	ctx.shadowColor = '#666666';
+	ctx.font = '48px STXingKai';
+	ctx.fillStyle = '#333333';
+	ctx.fillText('Hello / How are you', 20, 40);
+	ctx.fillText(hh, 100, 40);
+	var au=document.getElementById('player');
+	au.play();
+}
+	
+</script>
+
+<audio src="1.mp3" id="player"></audio>
+
+</body>
+</html>
