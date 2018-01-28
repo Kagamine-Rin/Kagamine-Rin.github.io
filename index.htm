@@ -97,7 +97,6 @@
 </head>
 <body>
 <div id='koko'>
-	<p align="center">KO KO</p>
 	<button onclick="fn()" id="van">Sing</button>
 	<canvas height="10" width="10" id="deep">
 		<p>Your Browser Does Not Support HTML5.</p>
@@ -118,7 +117,6 @@ var fn = function()
 	// canvas test
 	var van=document.getElementById('van');
 	var deep=document.getElementById('deep')
-	var koko=document.getElementById('koko');
 	koko.removeChild(deep);
 	koko.removeChild(van);
 	var canvas=document.createElement('canvas');
