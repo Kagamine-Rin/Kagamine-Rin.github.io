@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<script src="res/jquery.js"></script>
+<script>
+	var lrc=['ハロ/ハワユ','作词 & 作曲 : ナノウ','歌 : 初音ミク','','ハロ',
+	'窓を开けて　小さく呟いた', 'ハワユ', '谁もいない　部屋で一人', '']
+</script>
+<head>
+	<title>Hello,world!!</title>
+</head>
+<body>
+<div id='koko'>
+	<canvas height="10" width="10" id="cv0" onclick="fn()">
+		Your Browser Does Not Support HTML5.
+	</canvas>
+</div>
+<script>
+var cv0=document.getElementById('cv0');
+cv0.style.position = 'absolute';
+cv0.style.top = '0px';
+cv0.style.left = '0px';
+cv0.height = window.innerHeight;
+cv0.width = window.innerWidth;
+var ct=cv0.getContext('2d');
+ct.fillStyle = '#33FF99';
+ct.fillRect(0,0,cv0.width,cv0.height);
+var fn = function()
+{
+	var koko=document.getElementById('koko');
+	var cv1=document.createElement('canvas');
+	cv1.height = Math.round(window.innerHeight / 3);
+	cv1.width = window.innerWidth;
+	cv1.style.position = 'absolute';
+	cv1.style.top = '0px';
+	cv1.style.left = '0px';
+	koko.appendChild(cv1);
+	var cv2=document.createElement('canvas');
+	cv2.height = Math.round(window.innerHeight / 3);
+	cv2.width = window.innerWidth;
+	cv2.style.position = 'absolute';
+	cv2.style.top = cv1.height + 'px';
+	cv2.style.left = '0px';
+	koko.appendChild(cv2);
+	var cv3=document.createElement('canvas');
+	cv3.height = Math.round(window.innerHeight / 3);
+	cv3.width = window.innerWidth;
+	cv3.style.position = 'absolute';
+	cv3.style.top = (2 * cv1.height) + 'px';
+	cv3.style.left = '0px';
+	koko.appendChild(cv3);
+	var ct1=cv1.getContext('2d');
+	var ct2=cv2.getContext('2d');
+	var ct3=cv3.getContext('2d');
+	ct1.fillStyle = '#DDDDDD';
+	/*ct1.fillRect(0, 0, Math.round(cv1.width / 2), cv1.height);
+	ct1.shadowOffsetX = 2;
+	ct1.shadowOffsetY = 2;
+	ct1.shadowBlur = 2;
+	ct1.shadowColor = '#666666';
+	*/
+	ct1.font = '40px Microsoft JhengHei';
+	ct1.fillStyle = '#666666';
+	ct1.textAlign = 'center';
+	//ct1.fillText('ハロ/ハワユ', 20, 40);
+	ct2.font = '48px Microsoft JhengHei';
+	ct2.fillStyle = '#000000';
+	ct2.textAlign = 'center';
+	//ct2.fillText('作词 & 作曲 : ナノウ', 20, 40);
+	ct3.font = '40px Microsoft JhengHei';
+	ct3.fillStyle = '#666666';
+	ct3.textAlign = 'center';
+	//ct3.fillText('歌 : 初音ミク', 20, 40);
+	//ct1.fillText(hh, 100, 40);
+	var au=document.getElementById('player');
+	au.play();
+	changetext(0, ct1, ct2, ct3);
+	setTimeout(function(){changetext(1, ct1, ct2, ct3)}, 3000);
+	setTimeout(function(){changetext(2, ct1, ct2, ct3)}, 6000);
+}
+var changetext = function(index, ct1, ct2, ct3) 
+{
+	x = Math.round(window.innerWidth/2);
+	//console.log(x);
+	y = Math.round(window.innerHeight / 6);
+	ct1.clearRect(0, 0, x*2, y*2);
+	ct1.fillText(lrc[index], x, y-20);
+	ct2.clearRect(0, 0, x*2, y*2);
+	ct2.fillText(lrc[index+1], x, y-24);
+	ct3.clearRect(0, 0, x*2, y*2);
+	ct3.fillText(lrc[index+2], x, y-20);
+}	
+</script>
+
+<audio src="res/music/1.mp3" id="player"></audio>
+
+</body>
+</html>
