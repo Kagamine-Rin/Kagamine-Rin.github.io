@@ -1,6 +1,18 @@
+# i use python script to produce formatted html text
+
 *.py
 *.pyc
 *.pyo
-*.txt
 *.pyd
+
+# domain name won't change within 1 year
+
 CNAME
+
+# I use the extension name .htm to represent unaccomplished html files
+
+*.htm
+
+# text files are for notes and are not necessary
+
+*.txt
