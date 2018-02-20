@@ -1,0 +1,31 @@
+<html id="frame">
+	<head>
+		<title>镜像反转实验！</title>
+	</head>
+	<body id='body'>
+	<div id='coco'>
+		<h2>请输入要镜像反转的网址：</h2>
+		<input type="text" id="box">
+		<input type="button" onclick="fn()" value="have a try!">
+	</div>
+	</body>
+	<script>
+		var fn=function()
+		{
+			var frame=document.getElementById('frame');
+			frame.xmlns="http://www.w3.org/1999/xhtml";
+			frame.style="-moz-transform:scaleX(-1);-webkit-transform:scaleX(-1);-o-transform:scaleX(-1);transform:scaleX(-1);/*IE*/filter:FlipH;"
+			var src=document.getElementById('box').value;
+			var body=document.getElementById('body');
+			body.style="margin:0px";
+			var coco=document.getElementById('coco');
+			coco.innerHTML='';
+			var ifr=document.createElement('iframe');
+			ifr.src=src;
+			ifr.frameborder="0";
+			ifr.width="100%";
+			ifr.height="100%";
+			coco.appendChild(ifr);
+		}
+	</script>
+</html>

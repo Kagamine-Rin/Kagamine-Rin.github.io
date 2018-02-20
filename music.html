@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <script src="res/jquery.js"></script>
 <script>
@@ -16,17 +15,18 @@
 'そりゃまぁ私だって','自分に期待などしてないけれど','アレは一体どういうつもりですか','','喉元まで出かかった言叶',
 '口をついて出たのは嘘','こうして今日も私は贵重な','言叶を浪费して生きてゆく','何故隠してしまうのですか','笑われるのが怖いのですか',
 '谁にも会いたくないのですか','それ本当ですか','暧昧という名の海に溺れて','息も出来ないほど苦しいの','少し声が闻きたくなりました',
-'本当に弱いな','']
+'本当に弱いな','','click to replay']
 </script>
 <head>
 	<title>Press screen to play misic</title>
 </head>
 <body>
+<canvas height="10" width="10" id="cv0" onclick="fn()">
+	Your Browser Does Not Support HTML5.
+</canvas>
 <div id='koko'>
-	<canvas height="10" width="10" id="cv0" onclick="fn()">
-		Your Browser Does Not Support HTML5.
-	</canvas>
 </div>
+<canvas id="cv3" onclick="replay()" height="0" width="0"></canvas>
 <script>
 var cv0=document.getElementById('cv0');
 cv0.style.position = 'absolute';
@@ -37,6 +37,25 @@ cv0.width = window.innerWidth;
 var ct=cv0.getContext('2d');
 ct.fillStyle = '#33FF99';
 ct.fillRect(0,0,cv0.width,cv0.height);
+var replay=function()
+{
+	if(index===42)
+	{
+		index=0;
+		var koko2=document.getElementById('koko');
+		koko2.innerHTML='';
+		var au2=document.getElementById('player');
+		au2.currentTime = 0;
+		au2.pause();
+		var cv3=document.createElement('canvas');
+		cv3.height=0;
+		cv3.width=0;
+		cv3.id='cv3';
+		koko2.appendChild(cv3);
+		alert('');
+		fn();
+	}
+}
 var fn = function()
 {
 	var koko=document.getElementById('koko');
@@ -54,7 +73,7 @@ var fn = function()
 	cv2.style.top = cv1.height + 'px';
 	cv2.style.left = '0px';
 	koko.appendChild(cv2);
-	var cv3=document.createElement('canvas');
+	var cv3=document.getElementById('cv3');
 	cv3.height = Math.round(window.innerHeight / 3);
 	cv3.width = window.innerWidth;
 	cv3.style.position = 'absolute';
@@ -65,32 +84,20 @@ var fn = function()
 	var ct2=cv2.getContext('2d');
 	var ct3=cv3.getContext('2d');
 	ct1.fillStyle = '#DDDDDD';
-	/*ct1.fillRect(0, 0, Math.round(cv1.width / 2), cv1.height);
-	ct1.shadowOffsetX = 2;
-	ct1.shadowOffsetY = 2;
-	ct1.shadowBlur = 2;
-	ct1.shadowColor = '#666666';
-	*/
 	ct1.font = '40px Microsoft JhengHei';
 	ct1.fillStyle = '#666666';
 	ct1.textAlign = 'center';
-	//ct1.fillText('ハロ/ハワユ', 20, 40);
 	ct2.font = '48px Microsoft JhengHei';
 	ct2.fillStyle = '#000000';
 	ct2.textAlign = 'center';
-	//ct2.fillText('作词 & 作曲 : ナノウ', 20, 40);
 	ct3.font = '40px Microsoft JhengHei';
 	ct3.fillStyle = '#666666';
 	ct3.textAlign = 'center';
-	//ct3.fillText('歌 : 初音ミク', 20, 40);
-	//ct1.fillText(hh, 100, 40);
 	var au=document.getElementById('player');
 	au.play();
 	document.title = 'Hello/How are you';
-	//changetext(0, ct1, ct2, ct3);
 	for (var i =0; i <= timeline.length - 1;i++) 
 	{
-		//console.log(i);
 		setTimeout(function(){changetext(ct1, ct2, ct3)}, timeline[i]);
 	}
 }
