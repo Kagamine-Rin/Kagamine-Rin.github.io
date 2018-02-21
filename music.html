@@ -17,23 +17,17 @@
 '口をついて出たのは嘘','こうして今日も私は贵重な','言叶を浪费して生きてゆく','何故隠してしまうのですか','笑われるのが怖いのですか',
 '谁にも会いたくないのですか','それ本当ですか','暧昧という名の海に溺れて','息も出来ないほど苦しいの','少し声が闻きたくなりました',
 '本当に弱いな','','click to replay']
+var playable=function()
+{
+	document.title='Press screen to play misic';
+	var cv0=document.getElementById('cv0');
+	cv0.onclick=fn;
+}
 </script>
 <head>
 	<title>Loading...</title>
 </head>
 <body>
-<script>
-window.onload=function()
-{
-	document.title='Press screen to play misic';
-	var cv0=document.getElementById('cv0');
-	cv0.onclick=fn;
-	var hint=document.getElementById('hint');
-	var ct=cv0.getContext('2d');
-	ct.fillStyle = '#33FF99';
-	ct.fillRect(0,0,cv0.width,cv0.height);
-}
-</script>
 <canvas height="10" width="10" id="cv0">
 	Your Browser Does Not Support HTML5.
 </canvas>
@@ -51,7 +45,6 @@ cv0.width = window.innerWidth;
 var ct=cv0.getContext('2d');
 ct.fillStyle = '#33FF99';
 ct.fillRect(0,0,cv0.width,cv0.height);
-ct.fillText('Loading please wait....',200,200);
 var replay=function()
 {
 	if(index===42)
@@ -136,7 +129,7 @@ var changetext = function(ct1, ct2, ct3)
 }	
 </script>
 
-<audio src="res/music/1.mp3" id="player"></audio>
+<audio src="res/music/1.mp3" id="player" oncanplaythrough="playable()"></audio>
 
 </body>
 </html>
