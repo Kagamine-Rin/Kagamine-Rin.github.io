@@ -19,14 +19,27 @@
 '本当に弱いな','','click to replay']
 </script>
 <head>
-	<title>Press screen to play misic</title>
+	<title>Loading...</title>
 </head>
 <body>
-<canvas height="10" width="10" id="cv0" onclick="fn()">
+<script>
+window.onload=function()
+{
+	document.title='Press screen to play misic';
+	var cv0=document.getElementById('cv0');
+	cv0.onclick=fn;
+	var hint=document.getElementById('hint');
+	var ct=cv0.getContext('2d');
+	ct.fillStyle = '#33FF99';
+	ct.fillRect(0,0,cv0.width,cv0.height);
+}
+</script>
+<canvas height="10" width="10" id="cv0">
 	Your Browser Does Not Support HTML5.
 </canvas>
 <div id='koko'>
 </div>
+<p id='hint'>Loading please wait...</p>
 <canvas id="cv3" onclick="replay()" height="0" width="0"></canvas>
 <script>
 var cv0=document.getElementById('cv0');
@@ -38,6 +51,7 @@ cv0.width = window.innerWidth;
 var ct=cv0.getContext('2d');
 ct.fillStyle = '#33FF99';
 ct.fillRect(0,0,cv0.width,cv0.height);
+ct.fillText('Loading please wait....',200,200);
 var replay=function()
 {
 	if(index===42)
@@ -52,6 +66,7 @@ var replay=function()
 		cv3.height=0;
 		cv3.width=0;
 		cv3.id='cv3';
+		cv3.onclick=replay;
 		koko2.appendChild(cv3);
 		replytime++;
 		if(replytime===2)
