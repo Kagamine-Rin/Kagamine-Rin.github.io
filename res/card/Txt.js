@@ -15,8 +15,8 @@ Txt.prototype = {
 		}
 
 		ctx.save();
-		ctx.fillStyle = "#639fbf";
-		ctx.font = "bold " + config.prefaceFontSize + "pt sans-serif";
+		ctx.fillStyle = "#fc62b7";
+		ctx.font = "bold " + config.prefaceFontSize + "pt Comic Sans MS";//sans-serif
 		ctx.textAlign = "center";
 		ctx.textBaseline = "top";
 
