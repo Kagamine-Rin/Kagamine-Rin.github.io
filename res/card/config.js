@@ -5,7 +5,7 @@ var config = {"documentTitle":"Happy Birthday!!",
 "row":24,
 "emitterNum":12,
 "preface":
-["Happy 18th Birthday, darling~", //1
+["Happy 18th Birthday, darling~ Click to continue~", //1
 "Congratulations you are an adult now~",  //2
 "I am so happy that you have become maturer and more kawaii(lol)", //3
 "Thanks for being considerate and understanding all the time", //4
@@ -16,7 +16,7 @@ var config = {"documentTitle":"Happy Birthday!!",
 "But most importantly, be yourself, and never give up~",
 "Also, feel easy for the coming collage entrance exam",//14
 "I am sure that you can get the most satisfying result by all the efforts you made~",//15
-"Remember I will always be there to assist you!", //16
+"Remember I will always be there to support you!", //16
 "And finally, look at the webpage...", //17
 "By one more click on the screen...",
 "You should have known what I will say~" //18
