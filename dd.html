@@ -97,6 +97,9 @@
 	var reDraw = function(e)
 	{
 		ctx.clearRect(0,0,cv.width,cv.height);
+		ctx.fillStyle = "#ffffff";
+		ctx.fillRect(0,0,cv.width,cv.height);
+		ctx.fillStyle = "#000000";
 		ctx.drawImage(dd, ddLeft, ddTop, Math.round(scale * dd.width),Math.round(scale * dd.height));
 		ctx.font = parseInt(size.value) + 'px Microsoft JhengHei';
 		ctx.fillText(txt.value, txtLeft, txtTop);
