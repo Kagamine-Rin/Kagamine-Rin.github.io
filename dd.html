@@ -97,7 +97,7 @@
 	var reDraw = function(e)
 	{
 		ctx.clearRect(0,0,cv.width,cv.height);
-		ctx.drawImage(dd, Math.round(scale * ddLeft),Math.round(ddTop * scale));
+		ctx.drawImage(dd, ddLeft, ddTop, Math.round(scale * dd.width),Math.round(ddTop * dd.height));
 		ctx.font = parseInt(size.value) + 'px Microsoft JhengHei';
 		ctx.fillText(txt.value, txtLeft, txtTop);
 		var file = filebox.files[0];
@@ -148,8 +148,8 @@
 		delta = Math.round(scale * delta);
 		picTop = Math.round(scale * picTop);
 		picLeft = Math.round(scale * picLeft);
-		txtLeft = Math.round(scale * txtTop);
-		txtTop = Math.round(scale * txtLeft);
+		txtLeft = Math.round(scale * txtLeft);
+		txtTop = Math.round(scale * txtTop);
 		ddTop = Math.round(scale * ddTop);
 		ddLeft = Math.round(scale * ddLeft);
 	}
