@@ -32,7 +32,7 @@
 <input type="button" onclick="picPos(2)" value="↓">
 <input type="button" onclick="picPos(3)" value="←">
 <input type="button" onclick="picPos(4)" value="→"><br />
-幅度：<input type="text" id="d" value="10" width="100">&nbsp;&nbsp;
+缩放（%）：<input type="text" id="d" value="100" width="100">&nbsp;&nbsp;
 字号：<input type="text" id="size" value="36" width="100">&nbsp;&nbsp;
 <input type="button" onclick="yes()" value="确定"><br />
 <div id="img_place">
@@ -97,7 +97,7 @@
 	var reDraw = function(e)
 	{
 		ctx.clearRect(0,0,cv.width,cv.height);
-		ctx.drawImage(dd, ddLeft,ddTop);
+		ctx.drawImage(dd, Math.round(scale * ddLeft),Math.round(ddTop * scale));
 		ctx.font = parseInt(size.value) + 'px Microsoft JhengHei';
 		ctx.fillText(txt.value, txtLeft, txtTop);
 		var file = filebox.files[0];
@@ -106,7 +106,8 @@
 		{  
 	        var imgFile = e.target.result;    
 	        person.src = imgFile; 
-	        ctx.drawImage(person, picLeft,picTop);
+	        var a = parseFloat(d.value) / 100;
+	        ctx.drawImage(person, picLeft,picTop,Math.round(scale*a*person.width),Math.round(scale*a*person.height));
     	};  
     	try
     	{
@@ -124,57 +125,64 @@
 	var delta = 10;
 	var ddLeft = 320;
 	var ddTop = 90;
-	var scaleX = 1;
-	var scaleY = 1;
+	var scale = 1;
 	var cv = document.getElementById('cv');
 	var ctx = cv.getContext('2d');
 	var dd = document.getElementById('dd_jpg');
 	var txt = document.getElementById('txt');
 	var size = document.getElementById('size');
-	var koko = document.getElementById('img_place');
-	koko.removeChild(dd);
+	var coco = document.getElementById('img_place');
+	coco.removeChild(dd);
+	var d=document.getElementById('d');
 	var filebox=document.getElementById('filebox');
 	var person=document.getElementById('person');
 	var final=document.getElementById('final');
-	koko.removeChild(person);
-	koko.removeChild(final);
-	if(!IsPC())
+	coco.removeChild(person);
+	coco.removeChild(final);
+	if(!IsPC() && window.innerWidth <= 620)
 	{
 		cv.width = window.innerWidth - 20;
 		cv.height = Math.round(cv.width / 3 * 2);
-		scaleX = cv.height / 400;
-		scaleY = scaleX;
+		scale = cv.width / 600;
+		d.value = "30";
+		delta = Math.round(scale * delta);
+		picTop = Math.round(scale * picTop);
+		picLeft = Math.round(scale * picLeft);
+		txtLeft = Math.round(scale * txtTop);
+		txtTop = Math.round(scale * txtLeft);
+		ddTop = Math.round(scale * ddTop);
+		ddLeft = Math.round(scale * ddLeft);
 	}
 	reDraw();
 	var picPos = function(direction) 
 	{
 		if(direction===1)
-			picTop -= 10;
+			picTop -= delta;
 		else if(direction===2)
-			picTop += 10;
+			picTop += delta;
 		else if (direction===3)
-			picLeft -= 10;
+			picLeft -= delta;
 		else
-			picLeft += 10;
+			picLeft += delta;
 		reDraw();
 	}
 	var textPos = function(direction)
 	{
 		if(direction===1)
-			txtTop -= 10;
+			txtTop -= delta;
 		else if(direction===2)
-			txtTop += 10;
+			txtTop += delta;
 		else if (direction===3)
-			txtLeft -= 10;
+			txtLeft -= delta;
 		else
-			txtLeft += 10;
+			txtLeft += delta;
 		reDraw();
 	}
 	var yes = function()
 	{
 		try
 		{
-			koko.removeChild(final);
+			coco.removeChild(final);
 		}
 		catch(e)
 		{
@@ -182,7 +190,7 @@
 		}
 		var finalImg = cv.toDataURL("image/png");
 		final.src = finalImg;
-		koko.appendChild(final);
+		coco.appendChild(final);
 	}
 </script>
 </html>
