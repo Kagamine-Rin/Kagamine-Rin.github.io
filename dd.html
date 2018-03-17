@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="res/main.css">
+<title>I love ... forever</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary navbar-static-top mb-1">
+<div class="container">
+<a class="navbar-brand" href="/">I love ... forever</a>
+</div>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-lg-9">
+<!-- content... -->
+<canvas id="cv" height="400" width="600">Your browser does not support HTML5.</canvas>
+<br />文字：
+<input type="text" id="txt" value="我永远喜欢初音未来" onchange="reDraw()">
+<input type="button" onclick="textPos(1)" value="↑">
+<input type="button" onclick="textPos(2)" value="↓">
+<input type="button" onclick="textPos(3)" value="←">
+<input type="button" onclick="textPos(4)" value="→">
+<br />图片：
+<input type="file" id="filebox" onchange="reDraw()">
+<input type="button" onclick="picPos(1)" value="↑">
+<input type="button" onclick="picPos(2)" value="↓">
+<input type="button" onclick="picPos(3)" value="←">
+<input type="button" onclick="picPos(4)" value="→"><br />
+幅度：<input type="text" id="d" value="10" width="100">&nbsp;&nbsp;
+字号：<input type="text" id="size" value="36" width="100">&nbsp;&nbsp;
+<input type="button" onclick="yes()" value="确定"><br />
+<div id="img_place">
+	<img src="res/images/dd.jpg" id="dd_jpg">
+	<img id="person">
+	<img id="final">
+</div>
+</div>
+
+<div class="col-lg-3 hidden-md-down">
+<div class="card"><h4 class="card-header">Menu</h4><div class="card-block">
+
+<ul class="list-unstyled">
+<li><a href="/vocaran">ぼからんまとめ</a>
+
+<ul class="list-unstyled pl-1">
+<li><a href="/vocaran/538">ぼからん#538</a></li>
+</ul>
+</li>
+
+
+<li class="mt-1"><a href="/movieranking">動画ランキング</a>
+<ul class="list-unstyled pl-1">
+<li><a href="/movieranking/points">ポイントランキング</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="footer bg-info">
+<div class="container">
+ <p class="text-xs-right pt-1">Since 2007 version3</p>
+ <p class="text-xs-right">ぼからんファン＆マニアに捧ぐ</p>
+</div>
+</footer>
+
+<p id="page-top"><a href="#top">TOP</a></p>
+
+</body>
+<script>
+	//------------------
+	function IsPC() 
+	{
+	    var userAgentInfo = navigator.userAgent;
+	    var Agents = ["Android", "iPhone",
+	                "SymbianOS", "Windows Phone",
+	                "iPad", "iPod"];
+	    var flag = true;
+	    for (var v = 0; v < Agents.length; v++) {
+	        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+	            flag = false;
+	            break;
+	        }
+	    }
+	    return flag;
+	}
+	var reDraw = function(e)
+	{
+		ctx.clearRect(0,0,cv.width,cv.height);
+		ctx.drawImage(dd, ddLeft,ddTop);
+		ctx.font = parseInt(size.value) + 'px Microsoft JhengHei';
+		ctx.fillText(txt.value, txtLeft, txtTop);
+		var file = filebox.files[0];
+		var reader = new FileReader();
+		reader.onload=function(e) 
+		{  
+	        var imgFile = e.target.result;    
+	        person.src = imgFile; 
+	        ctx.drawImage(person, picLeft,picTop);
+    	};  
+    	try
+    	{
+    		reader.readAsDataURL(file);
+    	}
+    	catch(e)
+    	{
+    		// ------
+    	}
+	}
+	var picLeft = 50; // 600
+	var picTop = 50; // 400
+	var txtLeft = 90;
+	var txtTop = 350;
+	var delta = 10;
+	var ddLeft = 320;
+	var ddTop = 90;
+	var scaleX = 1;
+	var scaleY = 1;
+	var cv = document.getElementById('cv');
+	var ctx = cv.getContext('2d');
+	var dd = document.getElementById('dd_jpg');
+	var txt = document.getElementById('txt');
+	var size = document.getElementById('size');
+	var koko = document.getElementById('img_place');
+	koko.removeChild(dd);
+	var filebox=document.getElementById('filebox');
+	var person=document.getElementById('person');
+	var final=document.getElementById('final');
+	koko.removeChild(person);
+	koko.removeChild(final);
+	if(!IsPC())
+	{
+		cv.width = window.innerWidth - 20;
+		cv.height = Math.round(cv.width / 3 * 2);
+		scaleX = cv.height / 400;
+		scaleY = scaleX;
+	}
+	reDraw();
+	var picPos = function(direction) 
+	{
+		if(direction===1)
+			picTop -= 10;
+		else if(direction===2)
+			picTop += 10;
+		else if (direction===3)
+			picLeft -= 10;
+		else
+			picLeft += 10;
+		reDraw();
+	}
+	var textPos = function(direction)
+	{
+		if(direction===1)
+			txtTop -= 10;
+		else if(direction===2)
+			txtTop += 10;
+		else if (direction===3)
+			txtLeft -= 10;
+		else
+			txtLeft += 10;
+		reDraw();
+	}
+	var yes = function()
+	{
+		try
+		{
+			koko.removeChild(final);
+		}
+		catch(e)
+		{
+			// ------
+		}
+		var finalImg = cv.toDataURL("image/png");
+		final.src = finalImg;
+		koko.appendChild(final);
+	}
+</script>
+</html>
