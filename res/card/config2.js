@@ -5,21 +5,21 @@ var config = {"documentTitle":"Happy Birthday!!",
 "row":24,
 "emitterNum":12,
 "preface":
-["Happy 18th Birthday, darling~ Click to continue~", //1
-"Congratulations you are an adult now~",  //2
-"I am so happy that you have become maturer and more kawaii(lol)", //3
-"Thanks for being considerate and understanding all the time", //4
-"For encouraging me whenever I feel down", //5
-"And for all the love you gave me~", //6
-"Now that you have become an adult, I sincerely wish that you can be more independent",//7
-"And learn to take coresponding responsibility for everything you do",//8
-"But most importantly, be yourself, and never give up~",
-"Also, feel easy for the coming collage entrance exam",//14
-"I am sure that you can get the most satisfying result by all the efforts you made~",//15
-"Remember I will always be there to support you!", //16
-"And finally, look at the webpage...", //17
-"By one more click on the screen...",
-"You should have known what I will say~" //18
+["Happy 18th Birthday, darling~", //1
+"WARNING!!! This time I have something different to say~",  //2
+"I am going to confess my love to you!!", //3
+"I knew you will very very important in my life at the first time you spoke to me", //4
+"I am so happy whenever I receive your message", //5
+"I am so grateful that you gave me countless comfort", //6
+"the several months after I was refused by someone",//7
+"Although there were misunderstandings and I was to dull to understand your true feelings",//8
+"I came to realize the fact that I can not be without you~",
+"I am just too shy to acknowledge the fact that I love you when you asked me ",//14
+"those questions such as 'why don't us be together",//15
+"But just at that time I realized", //16
+"I love you because you mean the world to me~", //17
+"I really owe a lot of thanks to you...",
+"Hopefully I can use the rest of my life to pay back to you~" //18
 ],
 "prefaceFontSize":22,
 "colorList":["#f29c9c","#f3b59b","#9fe0f6","#0092c7","#fc62b7"],

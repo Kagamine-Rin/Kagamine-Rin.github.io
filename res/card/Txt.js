@@ -15,7 +15,7 @@ Txt.prototype = {
 		}
 
 		ctx.save();
-		ctx.fillStyle = "#fc62b7";
+		ctx.fillStyle = "#0000aa";
 		ctx.font = "bold " + config.prefaceFontSize + "pt Comic Sans MS";//sans-serif
 		ctx.textAlign = "center";
 		ctx.textBaseline = "top";
