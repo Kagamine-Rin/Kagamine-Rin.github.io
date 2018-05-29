@@ -24,7 +24,7 @@
         <h1>
 			第二张图片
 		</h1> 
-        <img src="res/images/ygbs.png" id="3" height="100" width="100">
+        <img src="res/images/ygbs.png" id="3" height="400" width="400">
         <h1>
 			生成结果
 		</h1>  
@@ -32,7 +32,7 @@
 		<h2>
 			请截图保存
 		</h2>
-		<canvas id="1" height="200" width="200">
+		<canvas id="1" height="400" width="400">
 			
 		</canvas>
 			
@@ -49,9 +49,9 @@
 		var img2=document.getElementById('3');
 		function draw()
 		{
-			pic.clearRect(0,0,100,100);
-			pic.drawImage(img1,0,0,100,100);
-			pic.drawImage(img2,0,0,100,100);
+			pic.clearRect(0,0,400,400);
+			pic.drawImage(img1,0,0,400,400);
+			pic.drawImage(img2,0,0,400,400);
 		}
 		function getpic()
 		{
@@ -73,7 +73,7 @@
 	        }
 			catch(e)
 			{
-				pic.clearRect(0,0,100,100);
+				pic.clearRect(0,0,400,400);
 			}
 		}
 
