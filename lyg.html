@@ -1,0 +1,84 @@
+<html>
+
+	<head>
+		<title>
+			洛一高加油！
+		</title>
+	</head>
+	<body>
+		
+		<input type="button" onclick="draw()" value="生成">
+	<!--
+		<h2>
+			zyf is sb
+		</h2>
+		<p>
+			adknabdkjanda,sndalkndlkamdlkamdalkna
+		</p>
+		<p>
+			kDP;ONSADNLSANDLKSANDLKANDLK
+		</p>
+	--> <h1>
+			第一张图片
+		</h1>
+		<div id="233">
+			<input type="file" id="filebox" onchange="getpic()">
+        
+		</div>
+        
+
+        <h1>
+			第二张图片
+		</h1> 
+        <img src="res/images/ygbs.png" id="3" height="100" width="100">
+        <h1>
+			生成结果
+		</h1>  
+
+		<canvas id="1" height="200" width="200">
+			
+		</canvas>
+			
+		
+	</body>
+	<script>
+		var place = document.getElementById('233');
+		var img1 = document.createElement('img');
+		img1.id = 'person';
+		var gyx=document.getElementById('1');
+		var pic=gyx.getContext('2d');
+	    //pic.fillText('songze niubi',100,100);
+		//var img1=document.getElementById('person');
+		var img2=document.getElementById('3');
+		function draw()
+		{
+			pic.clearRect(0,0,100,100);
+			pic.drawImage(img1,0,0,100,100);
+			pic.drawImage(img2,0,0,100,100);
+		}
+		function getpic()
+		{
+
+			var file = filebox.files[0]
+			var reader = new FileReader();
+			reader.onload=function(e) 
+			{  
+	        	var imgFile = e.target.result;
+	        	console.log(imgFile);
+	        	img1.src = imgFile;
+	        	console.log(img1);
+	        	//place.appendChild(img1);
+	        	//draw();
+	        }
+	        try
+	        {
+	        	reader.readAsDataURL(file);
+	        }
+			catch(e)
+			{
+				pic.clearRect(0,0,100,100);
+			}
+		}
+
+	</script>
+</html>
