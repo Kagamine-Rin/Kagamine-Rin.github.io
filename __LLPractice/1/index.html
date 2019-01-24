@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>...</title>
+		<script src="require.js"></script>
+		<script src="lzma.js"></script>
+		<script src="protobuf.min.js"></script>
+		<script src="main.js"></script>
+		<script>
+			function getQueryString(name) {
+		        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		        var r = window.location.search.substr(1).match(reg);
+		        if (r != null) return unescape(r[2]);
+		        return null;
+		    }
+			function init(rawmap) 
+			{
+				console.log("...");
+			    var data = new Int8Array(rawmap).reverse();
+			    var d = lzma.decompress(data);
+			    var decompressed = new Uint8Array(new Int8Array(d).buffer).reverse();
+			    var map = $root.M.decode(decompressed);
+			    console.log(map);
+			    document.getElementsByTagName("body")[0].innerText = JSON.stringify(map);
+			}
+			var req = new XMLHttpRequest();
+		    req.open('GET', getQueryString('file') + '.map');
+		    req.responseType = "arraybuffer";
+		    req.send();
+
+		    req.onreadystatechange = function () {
+		        if (req.readyState === 4) {
+		            var buffer = req.response;
+		            init(buffer);
+		            /*
+		            var dataview = new DataView(buffer);
+		            var ints = new Uint8Array(buffer.byteLength);
+		            for (var i = 0; i < ints.length; i++) {
+		                ints[i] = dataview.getUint8(i);
+		            }*/
+		        }
+		    }
+		</script>
+	</head>
+	<body>
+		Fuck!!!
+	</body>
+</html>

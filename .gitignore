@@ -16,3 +16,5 @@ CNAME
 # text files are for notes and are not necessary
 
 *.txt
+
+*.config

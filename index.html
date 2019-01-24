@@ -1,6 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-<script>
-    this.location = "http://spadeayase.cf" ;
-</script>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/theme.min.css">
+<title>AyaseLive!</title>
+<script src="/static/main.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-primary navbar-static-top mb-1">
+<div class="container">
+
+<a class="navbar-brand" href="http://spadeayase.cf">My Homepage</a>
+</div>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-lg-11">
+<!-- content... -->
+<div class="row mt-1">
+<div class="col-xs-6 col-md-4"> <input type="button" class="btn btn-info btn-block" value="Live Settings" onclick="settingsShow()" /></div>
+</div>
+<br />
+<div class="card" id="settings-board" style="display: none">
+<div class="card-block">
+<p>Live Speed(As is in game): <input type="range" min="1" max="10" value="10" id="slider" onchange="getSilderVal()" /><strong id="sliderval">10</strong> </p>
+<div class="row mt-1">
+<div class="col-xs-6 col-md-4"> <input type="button" class="btn btn-info btn-block" value="Save" onclick="settingsSave()" /></div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header card-primary p-0 text-xs-center" style="color:#fff">
+<strong>SIF Beatmaps</strong>
+</div>
+<div class="card-block p-0">	<br />
+<!--
+<img class="rounded nicothumb" style="border:solid 1px;" width="70px" src="http://tn-skr.smilevideo.jp/smile?i=18163063" alt="sm18163063" >
+-->
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/assets/image/live/live_icon/j_cd_54_01.png" alt="Angelic Angel" />
+<p style="text-align: center;"><strong style="color:red">Angelic Angel </strong><br />
+<a href="live.html?name=angelic-angel&difficulty=expert" style="color:blue">EXPERT</a>&nbsp;
+<a href="live.html?name=angelic-angel&difficulty=master" style="color:red">MASTER</a>
+</p></div>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/assets/image/live/live_icon/l_jacket_003.png" alt="Snow Halation" />
+<p style="text-align: center;"><strong style="color:blue">Snow Halation </strong><br />
+<a href="live.html?name=snow-halation&difficulty=expert" style="color:blue">EXPERT</a>&nbsp;
+<a href="live.html?name=snow-halation&difficulty=expert2" style="color:orange">EXPERT★</a>&nbsp;
+<a href="live.html?name=snow-halation&difficulty=master" style="color:red">MASTER</a>
+</p></div>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/assets/image/live/live_icon/j_cd_54_02.png" alt="Hello,星を数えて " />
+<p style="text-align: center;"><strong style="color:red">Hello,星を数えて </strong><br />
+<a href="live.html?name=hello-hoshi&difficulty=expert" style="color:blue">EXPERT</a>&nbsp;
+<a href="live.html?name=hello-hoshi&difficulty=master" style="color:red">MASTER</a>
+</p></div>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/assets/image/live/live_icon/j_cdsp_09.png" alt="Silent tonight" />
+<p style="text-align: center;"><strong style="color:green">Silent tonight</strong><br />
+<a href="live.html?name=silent-tonight&difficulty=expert" style="color:blue">EXPERT</a>&nbsp;
+<a href="live.html?name=silent-tonight&difficulty=master" style="color:red">MASTER</a>
+</p></div>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/assets/image/live/live_icon/j_cd_34_01.png" alt="KiRa-KiRa Sensation!" />
+<p style="text-align: center;"><strong style="color:green">KiRa-KiRa Sensation!</strong><br />
+<a href="live.html?name=kira-kira-sensation&difficulty=expert" style="color:blue">EXPERT</a>&nbsp;
+<a href="live.html?name=kira-kira-sensation&difficulty=master" style="color:red">MASTER</a></p></div>
+
+</div>
+</div>
+<br />
+<div class="card"><div class="card-header card-warning p-0 text-xs-center" style="color:#fff">
+<strong>Custom Beatmaps</strong>
+</div>
+<div class="card-block p-0">
+<br />
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/non_sif/calc/cover.png" alt="Calc." />
+<p style="text-align: center;">  <a href="live.html?name=calc&difficulty=">Calc.</a><br /> 
+</div>
+
+<div class="col-xs-12 col-md-4 col-lg-3">
+<img class="img-responsive center-block" src="/asset/non_sif/xinbaodao/cover.png" alt="新 宝 岛" />
+<p style="text-align: center;">  <a href="live.html?name=xinbaodao&difficulty=">新 宝 岛</a><br /> 
+</div>
+
+</div>
+</div>
+
+<!--
+<div class="card" style="display:block;" id="6346">
+<div class="card-header p-0" data-type="he">
+<a href="/contact/hitokoto?id=56346">6346</a>  名無し
+<small>(<a href="/contact/hitokoto?user=56346">a829728c</a>)</small>
+<small class="text-muted">2018-01-30(火) 10:31:32</small>
+</div>
+<div class="card-block p-0" style="word-wrap:break-word;">
+【巡音ルカV4X】泡沫金魚 - lust for partiality -【ルカ聖誕祭&#039;18】<br />
+シャレオツPきてる
+</div>
+</div>
+-->
+
+<!-- end content-->
+</div>
+
+<div class="col-lg-3 hidden-md-down">
+<!--
+<div class="card"><h4 class="card-header">Null</h4><div class="card-block">
+
+<ul class="list-unstyled">
+<li>Null
+
+<ul class="list-unstyled pl-1">
+<li>Null</li>
+<li>Null</li>
+</ul>
+</li>
+
+
+<li class="mt-1">Null
+<ul class="list-unstyled pl-1">
+<li>Null</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+-->
+</div>
+</div>
+</div>
+
+<footer class="footer bg-info">
+<div class="container">
+ <p class="text-xs-right pt-1">AyaseLive V0.7.0</p>
+ <p class="text-xs-right">Origin by yazawa@niconi.co.ni&nbsp;&nbsp;&nbsp; Edited by SpadeAyase</p>
+</div>
+</footer>
+
+<p id="page-top"><a href="#top">TOP</a></p>
+
+</body>
 </html>

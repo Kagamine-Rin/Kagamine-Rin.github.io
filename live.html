@@ -1,0 +1,289 @@
+<!DOCTY PE HTML>
+<html>
+<head>
+<title>Loading...</title>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimum-scale=1.0, minimal-ui" name="viewport" />
+<style>
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0px;
+  display: block;
+  background-color: black;
+}
+</style>
+<script src="/static/jquery.min.js"></script>
+<script>
+if (!window.Symbol || ![].includes) { //Safari
+  var script = document.createElement("script")
+  script.async = false
+  script.src = '/static/max.js'
+  document.getElementsByTagName("head")[0].appendChild(script)
+  window.alert("Warning: This webpage is not completely adjusted to Safari.")
+}
+</script>
+<script>
+	function getQueryString(name) 
+	{
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    var q = getQueryString('name');
+    var d = getQueryString('difficulty');
+    if(d=="")
+    {
+    	var b = '/asset/non_sif/' + q + '/main.js';
+    }
+    else
+    {
+    	var b = '/live/' + q + '/' + d + '.js';
+    }
+    console.log(q);
+    console.log(d);
+    $.getScript(b, function()
+    {
+    	load_callback();
+    })
+   
+</script>
+<script src="/static/live.min.js"></script>
+<script>
+
+var notes_se = {"1":{"name":"基本SEセット","assets":{"1":"assets/sound/ui/se/SE_309.mp3","2":"assets/sound/ui/se/SE_308.mp3","3":"assets/sound/ui/se/SE_307.mp3","4":"assets/sound/ui/se/SE_306.mp3"}},"2":{"name":"クラップMIX","assets":{"1":"assets/sound/live_se/live_se_02_1.mp3","2":"assets/sound/live_se/live_se_02_2.mp3","3":"assets/sound/live_se/live_se_02_3.mp3","4":"assets/sound/live_se/live_se_02_4.mp3"}},"3":{"name":"バブル","assets":{"1":"assets/sound/live_se/live_se_03_1.mp3","2":"assets/sound/live_se/live_se_03_2.mp3","3":"assets/sound/live_se/live_se_03_3.mp3","4":"assets/sound/live_se/live_se_03_4.mp3"}},"4":{"name":"SF","assets":{"1":"assets/sound/live_se/live_se_04_1.mp3","2":"assets/sound/live_se/live_se_04_2.mp3","3":"assets/sound/live_se/live_se_04_3.mp3","4":"assets/sound/live_se/live_se_04_4.mp3"}},"99":{"name":"アルパカ","assets":{"1":"assets/sound/voice/navi/vo_li_044_9007.mp3","2":"assets/sound/voice/navi/vo_li_044_9008.mp3","3":"assets/sound/voice/navi/vo_li_044_0001.mp3","4":"assets/sound/voice/navi/vo_li_044_0008.mp3"}}}
+var notes_icon = {"1":{"name":"デフォルト","assets":{"1":{"1":"assets/flash/ui/live/img/ef_315_notes_0002.png","2":"assets/flash/ui/live/img/ef_315_notes_0001.png","3":"assets/flash/ui/live/img/ef_315_notes_0003.png"},"2":{"1":"assets/flash/ui/live/img/ef_315_arrow_1.png","2":"assets/flash/ui/live/img/ef_315_arrow_1.png","3":"assets/flash/ui/live/img/ef_315_arrow_1.png"},"3":{"1":"assets/flash/ui/live/img/ef_315_timing_1.png","2":"assets/flash/ui/live/img/ef_315_timing_1.png","3":"assets/flash/ui/live/img/ef_315_timing_1.png"}}},"2":{"name":"ネオン","assets":{"1":{"1":"assets/flash/ui/live/img/ef_315_notes_0101.png","2":"assets/flash/ui/live/img/ef_315_notes_0102.png","3":"assets/flash/ui/live/img/ef_315_notes_0103.png"},"2":{"1":"assets/flash/ui/live/img/ef_315_arrow_2.png","2":"assets/flash/ui/live/img/ef_315_arrow_3.png","3":"assets/flash/ui/live/img/ef_315_arrow_4.png"},"3":{"1":"assets/flash/ui/live/img/ef_315_timing_2.png","2":"assets/flash/ui/live/img/ef_315_timing_2.png","3":"assets/flash/ui/live/img/ef_315_timing_2.png"}}},"3":{"name":"マット","assets":{"1":{"1":"assets/image/live/notes/notes_icon/3_normal_smile.png","2":"assets/image/live/notes/notes_icon/3_normal_pure.png","3":"assets/image/live/notes/notes_icon/3_normal_cool.png"},"2":{"1":"assets/image/live/notes/notes_icon/3_slide_smile.png","2":"assets/image/live/notes/notes_icon/3_slide_pure.png","3":"assets/image/live/notes/notes_icon/3_slide_cool.png"},"3":{"1":"assets/image/live/notes/notes_icon/3_same_common.png","2":"assets/image/live/notes/notes_icon/3_same_common.png","3":"assets/image/live/notes/notes_icon/3_same_common.png"}}}}
+var params = {}
+try {
+  params = JSON.parse(localStorage.getItem('livesettings')) || {}
+} catch (e) {}
+
+
+var difficulty = ["Challenge","Easy","Normal","Hard","Expert",null,"Master"];
+var speed_table = [null, 1.8, 1.6, 1.45, 1.3, 1.15, 1, 0.9, 0.8, 0.7, 0.6];
+var default_speed_table = [0.7, 1.6, 1.3, 1, 0.8, 0.8, 0.7]
+
+function load_callback()
+{
+	lives.forEach(function (live) {
+	  if (typeof(live.notes_list) == 'string') {
+	    live.notes_list = JSON.parse(live.notes_list)
+	  }
+	  if (params.mods && params.mods != "0") {
+	    live.notes_list.forEach(function (e) {
+	      e.vanish = parseInt(params.mods)
+	    })
+	  }
+
+	  if (params.speed == "1" && params.speed_param >= 0.45 && params.speed_param <= 2) {
+	    live.notes_speed = parseFloat(params.speed_param)
+	  } else if (params.speed == "2" && speed_table[params.speed_param]) {
+	    live.notes_speed = speed_table[params.speed_param]
+	  } else if (!live.notes_speed) {
+	    live.notes_speed = default_speed_table[live.difficulty]
+	  }
+	})
+	document.title = lives[0].name + ' - ' + difficulty[lives[0].stage_level] + " - Ayaselive";
+	var dummy = '/asset/assets/flash/ui/live/img/ef_331_001.png';
+	if (lives[0].member_category == 0)
+	  dummy = '/static/images/null.png';
+	else if (lives[0].member_category == 2)
+	  dummy = '/asset/assets/flash/ui/live/img/ef_701_000.png';
+	else if (lives[0].member_category == 3)
+	  dummy = lives[0].deck || dummy;
+	var deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
+	initLive(deck);
+}
+var total = false;
+var liveClearVE = false;
+/*
+$(document).ready(function () {
+   loadDeck(initLive);
+})
+*/
+function initLive(deck) {
+  if (params.cutin_flag == '2') {
+    deck.forEach(function (e) {
+      if (e.skill) {
+        delete e.skill.navi;
+      }
+    })
+  }
+  var canvas = document.getElementById('live');
+  if (/Trident/i.test(navigator.userAgent)) { //IE
+    canvas.addEventListener("MSHoldVisual", function(e) { e.preventDefault(); }, false);
+    canvas.addEventListener("contextmenu", function(e) { e.preventDefault(); }, false);
+  }
+  
+  function detectMultipleSameTiming(n) {
+    var tmp = {}
+    n.forEach(function (e) {
+      if (!tmp[e.timing_sec]) {
+        tmp[e.timing_sec] = 1
+      } else {
+        ++tmp[e.timing_sec]
+      }
+    })
+    for (var i in tmp) {
+      if (tmp[i] > 2) {
+        return true
+      }
+    }
+    return false
+  }
+  var random = parseInt(params.random || 0)
+  lives.forEach(function (live) {
+    if (!random) {
+      return
+    }
+    if (detectMultipleSameTiming(live.notes_list)) {
+      alert('当前谱面为多押谱，随机将被禁用！')
+      random = false
+    } else if (live.notes_list.filter(function (e) {
+      return e.effect >= 11 && e.effect <= 13
+    }).length > 0) {
+      alert('当前谱面为滑键谱，随机将被禁用！')
+      random = false
+    }
+  })
+  
+  if (params.note_style == '0') {
+    params.note_style = 1
+  }
+  if (params.note_style_arrow == '0') {
+    params.note_style_arrow = 1
+  }
+  if (params.note_style_parallel == '0') {
+    params.note_style_parallel = 1
+  }
+  
+  var getFrame = function (live) {
+    if (live.ac_flag) {
+      return '/asset/assets/image/ui/live/l_win_44.png'
+    } else if (live.swing_flag) {
+      return '/asset/assets/image/ui/live/l_win_46.png'
+    } else if (random && random != "0") {
+      return '/asset/assets/image/ui/live/l_win_30.png'
+    }
+    return false
+  }
+  var config = {
+    effect_flag: (typeof (params.effect_flag) !== 'undefined') ? parseInt(params.effect_flag) : 1,
+    size_setting: (typeof (params.text_size) !== 'undefined') ? parseInt(params.text_size) : 1,
+    cutin_setting: parseInt(params.cutin_flag) || 0,
+    cutin_color: (typeof (params.cutin_color) !== 'undefined') ? parseInt(params.cutin_color) : 3,
+    random: random,
+    vanish: params.mods == "1" || params.mods == "2",
+    show_mission_target: (typeof (params.show_mission_target) !== 'undefined') ? parseInt(params.show_mission_target) : 0,
+
+    flsh_asset_path: '/asset/',
+    ui_auto: '/static/images/auto.png',
+    
+    ui_smile: notes_icon[params.note_style || 1].assets[1][1],
+    ui_pure: notes_icon[params.note_style || 1].assets[1][2],
+    ui_cool: notes_icon[params.note_style || 1].assets[1][3],
+    ui_smile_arrow: notes_icon[params.note_style_arrow || 1].assets[2][1],
+    ui_pure_arrow: notes_icon[params.note_style_arrow || 1].assets[2][2],
+    ui_cool_arrow: notes_icon[params.note_style_arrow || 1].assets[2][3],
+    ui_smile_parallel: notes_icon[params.note_style_parallel || 1].assets[3][1],
+    ui_pure_parallel: notes_icon[params.note_style_parallel || 1].assets[3][2],
+    ui_cool_parallel: notes_icon[params.note_style_parallel || 1].assets[3][3],
+    
+    se_perfect: '/asset/' + notes_se[params.se || 1].assets[4],
+    se_great: '/asset/' + notes_se[params.se || 1].assets[3],
+    se_good: '/asset/' + notes_se[params.se || 1].assets[2],
+    se_bad: '/asset/' + notes_se[params.se || 1].assets[1],
+    
+    character: deck,
+    rank: lives.map(function (live) {
+      return [live.c_rank_score, live.b_rank_score, live.a_rank_score, live.s_rank_score]
+    }).reduce(function (a, b) {
+      return a.map(function (e, i) {
+        return e + b[i]
+      })
+    }),
+    
+    lives: lives.map(function (live) {
+      if (live.json_name) { //custom live
+        return {
+          bg: live.background_asset,
+          jacket_icon: live.jacket_asset,
+          jacket_frame: live.frame_asset,
+          jacket_text: live.title_asset,
+          sound: live.sound_asset,
+          attribute: live.attribute_id,
+          notes_speed: live.notes_speed,
+          member_category: 0,
+          title: '[' + difficulty[live.difficulty] + ']' + live.name,
+          notes_list: live.notes_list
+        }
+      }
+      return {
+        bg: '/asset/' + live.asset_background,
+        jacket_icon: '/asset/' + live.live_icon_asset,
+        jacket_frame: getFrame(live),
+        jacket_text: '/asset/' + live.title_asset,
+        sound: '/asset/' + live.sound_asset,
+        attribute: live.attribute_icon_id,
+        notes_speed: live.notes_speed,
+        member_category: live.member_category,
+        title: live.name,
+        difficulty: difficulty[live.difficulty],
+        notes_list: live.notes_list
+      }
+    }),
+    
+    localize: {
+      startGame: '点此开始游戏',
+      autoPlay: '点此看谱（自动播放）',
+      fullScreen: '点此切换全屏',
+      score: '得分',
+      combo: 'Combo',
+      losthp: '失血',
+      kizuna: '获得绊',
+      icon: '获得活动道具',
+      pfNormal: '单点PERFECT',
+      pfSameTiming: '同时押PERFECT',
+      pfHold: '长押PERFECT',
+      pfSlide: '滑键PERFECT',
+      preciseResultMF: '组曲模式暂不支持查看PERFECT数分布和判定分布图',
+    },
+    
+    skill_control: {
+      combo_bonus: 100,
+      combo_bonus_fixed: 100000,
+      perfect_bonus: 100,
+      perfect_bonus_fixed: 100000
+    },
+    
+    key_config: params.key_config || ['a', 's', 'd', 'f', ' ', 'j', 'k', 'l', ';'],
+    no_skill: !!parseInt(params.no_skill) || false,
+  }
+  
+  if (params.note_style == "2" && params.note_style_arrow == "2") {
+    config.ui_smile_arrow = '/asset/assets/flash/ui/live/img/ef_315_notes_0111.png'
+    config.ui_pure_arrow = '/asset/assets/flash/ui/live/img/ef_315_notes_0112.png'
+    config.ui_cool_arrow = '/asset/assets/flash/ui/live/img/ef_315_notes_0113.png'
+    config.ui_custom_note_flag = 2
+  } else if (params.note_style == '1') {
+    config.ui_custom_note_flag = 1
+  }
+  
+  if (total) {
+    config.base_hp = total[0]
+    config.base_score = [total[1], total[2], total[3]]
+  }
+  
+  if (liveClearVE) {
+    config.ve_clear = liveClearVE
+  }
+  
+  new LivePlayer(canvas, config)
+}
+</script>
+</head>
+<body style="text-align:center;background-color:black;color:white;touch-action:none;overflow: hidden">
+<canvas id="live" width="1136px" height="640px" style="background: black">您的浏览器不支持Canvas，无法使用此功能！</canvas>
+</body>
+</html>
