@@ -1,0 +1,1 @@
+{"name":"root","x":0,"y":0,"priority":0,"sub":[{"name":"task_varitem_target","x":2,"y":0,"priority":1,"class":"task_varitem","default":"assets/image/ui/event/e_etc_81.png.imag","width":124,"height":32,"varclip":0},{"name":"task_group_number","x":140,"y":-12,"class":"task_group","width":68,"height":64}],"width":218,"height":64}
