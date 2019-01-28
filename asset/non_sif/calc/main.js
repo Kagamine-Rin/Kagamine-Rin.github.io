@@ -1,6 +1,6 @@
 var lives = [{"live_setting_id":210,"live_track_id":243,"difficulty":5,
 "stage_level":11,"attribute_icon_id":1,"live_icon_asset":"non_sif/calc/cover.png",
-"asset_movie_id":null,"asset_background_id":12,"notes_setting_asset":"Live_0534.json",
+"asset_movie_id":null,"asset_background_id":12,"notes_setting_asset":"custom",
 "c_rank_score":165800,"b_rank_score":331600,"a_rank_score":494700,"s_rank_score":663200,
 "c_rank_combo":208,"b_rank_combo":415,"a_rank_combo":622,"s_rank_combo":829,
 "name":"Calc","name_kana":"",

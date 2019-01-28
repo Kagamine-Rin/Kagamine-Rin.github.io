@@ -52,10 +52,10 @@
 			{"name":"task_group_gauge_max_anchor","x":463,"y":24,"anchorY":16,"class":"task_group",
 			"width":38,"height":27}],
 		"xscale":1,"yscale":1,"rotation":0},
-		{"name":"node_hp_part","x":0,"y":0,"anchorY":16,"priority":0,
+		{"name":"node_hp_part","x":0,"y":0,"anchorY":16,"priority":0, //1
 			"sub":[{"name":"node_hp_gauge","x":14,"y":60,"class":"animnode",
 				"sub":[{"name":"animnode_blink","x":0,"y":0,"class":"animnode",
-					"sub":[{"name":"node_empty_blink","x":0,"y":0,"priority":0,
+					"sub":[{"name":"node_empty_blink","x":0,"y":0,"priority":0,//115
 					"default":"assets/image/ui/live/live_gauge_02_01.png.imag","xscale":1,"yscale":1,
 				"rotation":0}],"states":[{"type":"blink","timeshift":0,"length":400,"easing":5,
 				"fromx":0,"fromy":0,"tox":0,"toy":0,"fromalpha":0,"toalpha":255,"fromcolor":-1,
@@ -64,7 +64,7 @@
 		"length":200,"easing":5,"fromx":0,"fromy":0,"tox":0,"toy":0,"fromalpha":0,"toalpha":255,
 	"fromcolor":-1,"tocolor":-1,"fromscalex":1,"fromscaley":1,"toscalex":1,"toscaley":1,"loop":1,
 "pingpong":1,"fromrotation":0,"torotation":0}],"xscale":1,"yscale":1,"rotation":0,"visible":0},
-	{"name":"hp_progressbar","x":0,"y":0,"priority":0,"class":"task_progressbar",
+	{"name":"hp_progressbar","x":0,"y":0,"priority":0,"class":"task_progressbar",//114
 	"default":"assets/image/ui/live/live_gauge_02_02.png.imag","disable":
 "assets/image/ui/live/live_gauge_02_01.png.imag","width":271,"height":29,
 "orientation":0,"value":80,"startpixel":35,"endpixel":268,"animtime":100}],
@@ -76,7 +76,7 @@
 "fromscaley":1,"toscalex":1,"toscaley":1,"loop":1,"pingpong":1,"fromrotation":0,"torotation":0}],
 "xscale":1,"yscale":1,"rotation":0},
 {"name":"animnode_score_hp","x":0,"y":0,"class":"animnode",
-	"sub":[{"name":"task_score_hp","x":290,"y":64,"priority":0,"class":"task_score","color":-1,
+	"sub":[{"name":"task_score_hp","x":290,"y":64,"priority":0,"class":"task_score","color":-1,//30
 	"value":123,"priorityoffset":0,"numbercount":3,"stepx":16,"stepy":0,"fillzero":0,"animate":0,
 "asset0":"assets/image/ui/live/live_num_0.png.imag","asset1":"assets/image/ui/live/live_num_1.png.imag","asset2":"assets/image/ui/live/live_num_2.png.imag","asset3":"assets/image/ui/live/live_num_3.png.imag","asset4":"assets/image/ui/live/live_num_4.png.imag","asset5":"assets/image/ui/live/live_num_5.png.imag","asset6":"assets/image/ui/live/live_num_6.png.imag","asset7":"assets/image/ui/live/live_num_7.png.imag","asset8":"assets/image/ui/live/live_num_8.png.imag","asset9":"assets/image/ui/live/live_num_9.png.imag",
 "align":0,"countclip":0}],
@@ -87,12 +87,12 @@
 "fromalpha":255,"toalpha":100,"fromcolor":-1,"tocolor":-8323200,"fromscalex":1,"fromscaley":1,
 "toscalex":1,"toscaley":1,"loop":0,"pingpong":1,"fromrotation":0,"torotation":0}],"xscale":1,
 "yscale":1,"rotation":0},{"name":"animnode_hp","x":290,"y":90,"class":"animnode",
-	"sub":[{"name":"task_score_hp_change","x":16,"y":0,"priority":0,"class":"task_score",
+	"sub":[{"name":"task_score_hp_change","x":16,"y":0,"priority":0,"class":"task_score",//30
 	"color":-1,"value":12,"priorityoffset":0,"numbercount":2,"stepx":16,"stepy":0,
 "fillzero":0,"animate":0,"asset0":"assets/image/ui/live/live_num_0.png.imag","asset1":"assets/image/ui/live/live_num_1.png.imag","asset2":"assets/image/ui/live/live_num_2.png.imag","asset3":"assets/image/ui/live/live_num_3.png.imag","asset4":"assets/image/ui/live/live_num_4.png.imag","asset5":"assets/image/ui/live/live_num_5.png.imag","asset6":"assets/image/ui/live/live_num_6.png.imag","asset7":"assets/image/ui/live/live_num_7.png.imag","asset8":"assets/image/ui/live/live_num_8.png.imag","asset9":"assets/image/ui/live/live_num_9.png.imag",
 "align":0,"countclip":0},
 {"name":"node_plus","x":0,"y":0,"priority":30,"default":"assets/image/ui/live/live_plus.png.imag",
-"xscale":1,"yscale":1,"rotation":0},{"name":"node_minus","x":0,"y":0,"priority":0,
+"xscale":1,"yscale":1,"rotation":0},{"name":"node_minus","x":0,"y":0,"priority":0,//30
 "default":"assets/image/ui/live/live_minus.png.imag","xscale":1,"yscale":1,"rotation":0}],
 	"states":[{"type":"show_damage","timeshift":0,"length":500,"easing":9,"fromx":290,
 	"fromy":90,"tox":290,"toy":90,"fromalpha":0,"toalpha":255,"fromcolor":-1,"tocolor":-360334,

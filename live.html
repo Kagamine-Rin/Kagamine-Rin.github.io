@@ -263,6 +263,7 @@ function initLive(deck) {
     
     key_config: params.key_config || ['a', 's', 'd', 'f', ' ', 'j', 'k', 'l', ';'],
     no_skill: !!parseInt(params.no_skill) || false,
+    custom: lives[0].notes_setting_asset == "custom"
   }
   
   if (params.note_style == "2" && params.note_style_arrow == "2") {

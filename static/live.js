@@ -1,5 +1,4 @@
-!
-function() {
+!function() { //define the function and execute at once
 	return function t(e, i, n) {
 		function r(s, o) {
 			if (!i[s]) {
@@ -23,12 +22,14 @@ function() {
 		return r
 	}
 }()({
-	1: [function(t, e, i) {
+	1: [//1
+	function(t, e, i) {
 		e.exports = function(t) {
 			if (Array.isArray(t)) return t
 		}
 	}, {}],
-	2: [function(t, e, i) {
+	2: [//2
+	function(t, e, i) {
 		e.exports = function(t) {
 			if (Array.isArray(t)) {
 				for (var e = 0, i = new Array(t.length); e < t.length; e++) i[e] = t[e];
@@ -36,13 +37,15 @@ function() {
 			}
 		}
 	}, {}],
-	3: [function(t, e, i) {
+	3: [//3
+	function(t, e, i) {
 		e.exports = function(t) {
 			if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
 			return t
 		}
 	}, {}],
-	4: [function(t, e, i) {
+	4: [//4
+	function(t, e, i) {
 		function n(t, e, i, n, r, a, s) {
 			try {
 				var o = t[a](s),
@@ -70,12 +73,14 @@ function() {
 			}
 		}
 	}, {}],
-	5: [function(t, e, i) {
+	5: [//5
+	function(t, e, i) {
 		e.exports = function(t, e) {
 			if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function")
 		}
 	}, {}],
-	6: [function(t, e, i) {
+	6: [//6
+	function(t, e, i) {
 		var n = t(18);
 
 		function r(t, i, a) {
@@ -99,7 +104,8 @@ function() {
 	}, {
 		18: 18
 	}],
-	18: [function(t, e, i) {
+	18: [//18
+	function(t, e, i) {
 		function n(t, i) {
 			return e.exports = n = Object.setPrototypeOf ||
 			function(t, e) {
@@ -108,7 +114,8 @@ function() {
 		}
 		e.exports = n
 	}, {}],
-	7: [function(t, e, i) {
+	7: [//7
+	function(t, e, i) {
 		function n(t, e) {
 			for (var i = 0; i < e.length; i++) {
 				var n = e[i];
@@ -119,7 +126,8 @@ function() {
 			return e && n(t.prototype, e), i && n(t, i), t
 		}
 	}, {}],
-	8: [function(t, e, i) {
+	8: [//8
+	function(t, e, i) {
 		e.exports = function(t, e, i) {
 			return e in t ? Object.defineProperty(t, e, {
 				value: i,
@@ -129,7 +137,8 @@ function() {
 			}) : t[e] = i, t
 		}
 	}, {}],
-	9: [function(t, e, i) {
+	9: [//9
+	function(t, e, i) {
 		t(10);
 		var n = t(20);
 
@@ -147,7 +156,8 @@ function() {
 		10: 10,
 		20: 20
 	}],
-	10: [function(t, e, i) {
+	10: [//10
+	function(t, e, i) {
 		function n(t) {
 			return e.exports = n = Object.setPrototypeOf ? Object.getPrototypeOf : function(t) {
 				return t.__proto__ || Object.getPrototypeOf(t)
@@ -155,7 +165,8 @@ function() {
 		}
 		e.exports = n
 	}, {}],
-	20: [function(t, e, i) {
+	20: [//20
+	function(t, e, i) {
 		var n = t(10);
 		e.exports = function(t, e) {
 			for (; !Object.prototype.hasOwnProperty.call(t, e) && null !== (t = n(t)););
@@ -164,7 +175,8 @@ function() {
 	}, {
 		10: 10
 	}],
-	11: [function(t, e, i) {
+	11: [//11
+	function(t, e, i) {
 		var n = t(18);
 		e.exports = function(t, e) {
 			if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
@@ -179,7 +191,8 @@ function() {
 	}, {
 		18: 18
 	}],
-	12: [function(t, e, i) {
+	12: [//12
+	function(t, e, i) {
 		e.exports = function(t) {
 			return t && t.__esModule ? t : {
 			default:
@@ -187,12 +200,14 @@ function() {
 			}
 		}
 	}, {}],
-	13: [function(t, e, i) {
+	13: [//13
+	function(t, e, i) {
 		e.exports = function(t) {
 			if (Symbol.iterator in Object(t) || "[object Arguments]" === Object.prototype.toString.call(t)) return Array.from(t)
 		}
 	}, {}],
-	14: [function(t, e, i) {
+	14: [//14
+	function(t, e, i) {
 		e.exports = function(t, e) {
 			var i = [],
 				n = !0,
@@ -214,17 +229,20 @@ function() {
 			return i
 		}
 	}, {}],
-	15: [function(t, e, i) {
+	15: [//15
+	function(t, e, i) {
 		e.exports = function() {
 			throw new TypeError("Invalid attempt to destructure non-iterable instance")
 		}
 	}, {}],
-	16: [function(t, e, i) {
+	16: [//16
+	function(t, e, i) {
 		e.exports = function() {
 			throw new TypeError("Invalid attempt to spread non-iterable instance")
 		}
 	}, {}],
-	17: [function(t, e, i) {
+	17: [//17
+	function(t, e, i) {
 		var n = t(22),
 			r = t(3);
 		e.exports = function(t, e) {
@@ -234,7 +252,8 @@ function() {
 		22: 22,
 		3: 3
 	}],
-	22: [function(t, e, i) {
+	22: [//22
+	function(t, e, i) {
 		function n(t) {
 			return (n = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ?
 			function(t) {
@@ -252,7 +271,8 @@ function() {
 		}
 		e.exports = r
 	}, {}],
-	19: [function(t, e, i) {
+	19: [//19
+	function(t, e, i) {
 		var n = t(1),
 			r = t(14),
 			a = t(15);
@@ -264,7 +284,8 @@ function() {
 		14: 14,
 		15: 15
 	}],
-	21: [function(t, e, i) {
+	21: [//21
+	function(t, e, i) {
 		var n = t(2),
 			r = t(13),
 			a = t(16);
@@ -276,12 +297,14 @@ function() {
 		16: 16,
 		2: 2
 	}],
-	23: [function(t, e, i) {
+	23: [//23
+	function(t, e, i) {
 		e.exports = t(43)
 	}, {
 		43: 43
 	}],
-	43: [function(t, e, i) {
+	43: [//43
+	function(t, e, i) {
 		var n = function() {
 				return this || "object" == typeof self && self
 			}() || Function("return this")(),
@@ -296,7 +319,8 @@ function() {
 	}, {
 		44: 44
 	}],
-	24: [function(t, e, i) {
+	24: [//24
+	function(t, e, i) {
 		"use strict";
 		i.toByteArray = function(t) {
 			for (var e, i = l(t), n = i[0], s = i[1], o = new a(function(t, e, i) {
@@ -321,7 +345,8 @@ function() {
 		}
 		r["-".charCodeAt(0)] = 62, r["_".charCodeAt(0)] = 63
 	}, {}],
-	25: [function(t, e, i) {
+	25: [//25
+	function(t, e, i) {
 		"use strict";
 		var n = t(24),
 			r = t(28);
@@ -961,7 +986,8 @@ function() {
 		24: 24,
 		28: 28
 	}],
-	28: [function(t, e, i) {
+	28: [//28
+	function(t, e, i) {
 		i.read = function(t, e, i, n, r) {
 			var a, s, o = 8 * r - n - 1,
 				u = (1 << o) - 1,
@@ -991,7 +1017,8 @@ function() {
 			t[i + _ - d] |= 128 * p
 		}
 	}, {}],
-	26: [function(t, e, i) {
+	26: [//26
+	function(t, e, i) {
 		(function(t) {
 			var i = function() {
 					"use strict";
@@ -1102,7 +1129,8 @@ function() {
 	}, {
 		25: 25
 	}],
-	27: [function(t, e, i) {
+	27: [//27
+	function(t, e, i) {
 		"use strict";
 
 		function n(t, e, i) {
@@ -1355,7 +1383,8 @@ function() {
 			return i
 		}
 	}, {}],
-	29: [function(t, e, i) {
+	29: [//29
+	function(t, e, i) {
 		"function" == typeof Object.create ? e.exports = function(t, e) {
 			t.super_ = e, t.prototype = Object.create(e.prototype, {
 				constructor: {
@@ -1371,7 +1400,8 @@ function() {
 			i.prototype = e.prototype, t.prototype = new i, t.prototype.constructor = t
 		}
 	}, {}],
-	30: [function(t, e, i) {
+	30: [//30
+	function(t, e, i) {
 		"use strict";
 		var n = t(38),
 			r = t(31),
@@ -1426,7 +1456,8 @@ function() {
 		40: 40,
 		41: 41
 	}],
-	31: [function(t, e, i) {
+	31: [//31
+	function(t, e, i) {
 		"use strict";
 		var n = "undefined" != typeof Uint8Array && "undefined" != typeof Uint16Array && "undefined" != typeof Int32Array;
 
@@ -1469,7 +1500,8 @@ function() {
 			t ? (i.Buf8 = Uint8Array, i.Buf16 = Uint16Array, i.Buf32 = Int32Array, i.assign(i, a)) : (i.Buf8 = Array, i.Buf16 = Array, i.Buf32 = Array, i.assign(i, s))
 		}, i.setTyped(n)
 	}, {}],
-	34: [function(t, e, i) {
+	34: [//34
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			Z_NO_FLUSH: 0,
@@ -1481,7 +1513,8 @@ function() {
 			Z_BUF_ERROR: -5
 		}
 	}, {}],
-	40: [function(t, e, i) {
+	40: [//40
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			2: "need dictionary",
@@ -1495,19 +1528,22 @@ function() {
 			"-6": "incompatible version"
 		}
 	}, {}],
-	41: [function(t, e, i) {
+	41: [//41
+	function(t, e, i) {
 		"use strict";
 		e.exports = function() {
 			this.input = null, this.next_in = 0, this.avail_in = 0, this.total_in = 0, this.output = null, this.next_out = 0, this.avail_out = 0, this.total_out = 0, this.msg = "", this.state = null, this.data_type = 2, this.adler = 0
 		}
 	}, {}],
-	36: [function(t, e, i) {
+	36: [//36
+	function(t, e, i) {
 		"use strict";
 		e.exports = function() {
 			this.text = 0, this.time = 0, this.xflags = 0, this.os = 0, this.extra = null, this.extra_len = 0, this.name = "", this.comment = "", this.hcrc = 0, this.done = !1
 		}
 	}, {}],
-	32: [function(t, e, i) {
+	32: [//32
+	function(t, e, i) {
 		"use strict";
 		var n = t(31),
 			r = !0,
@@ -1556,7 +1592,8 @@ function() {
 	}, {
 		31: 31
 	}],
-	38: [function(t, e, i) {
+	38: [//38
+	function(t, e, i) {
 		"use strict";
 		var n = t(31),
 			r = t(33),
@@ -2014,7 +2051,8 @@ function() {
 		37: 37,
 		39: 39
 	}],
-	33: [function(t, e, i) {
+	33: [//33
+	function(t, e, i) {
 		"use strict";
 		e.exports = function(t, e, i, n) {
 			for (var r = 65535 & t | 0, a = t >>> 16 & 65535 | 0, s = 0; 0 !== i;) {
@@ -2027,7 +2065,8 @@ function() {
 			return r | a << 16 | 0
 		}
 	}, {}],
-	35: [function(t, e, i) {
+	35: [//35
+	function(t, e, i) {
 		"use strict";
 		var n = function() {
 				for (var t, e = [], i = 0; i < 256; i++) {
@@ -2045,7 +2084,8 @@ function() {
 			return -1 ^ t
 		}
 	}, {}],
-	37: [function(t, e, i) {
+	37: [//37
+	function(t, e, i) {
 		"use strict";
 		e.exports = function(t, e) {
 			var i, n, r, a, s, o, u, l, c, f, h, _, d, p, v, g, m, y, b, k, w, x, A, S, E;
@@ -2134,7 +2174,8 @@ function() {
 			n -= k = d >> 3, _ &= (1 << (d -= k << 3)) - 1, t.next_in = n, t.next_out = a, t.avail_in = n < r ? r - n + 5 : 5 - (n - r), t.avail_out = a < o ? o - a + 257 : 257 - (a - o), i.hold = _, i.bits = d
 		}
 	}, {}],
-	39: [function(t, e, i) {
+	39: [//39
+	function(t, e, i) {
 		"use strict";
 		var n = t(31),
 			r = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0],
@@ -2190,7 +2231,8 @@ function() {
 	}, {
 		31: 31
 	}],
-	42: [function(t, e, i) {
+	42: [//42
+	function(t, e, i) {
 		var n, r, a = e.exports = {};
 
 		function s() {
@@ -2276,7 +2318,8 @@ function() {
 			return 0
 		}
 	}, {}],
-	44: [function(t, e, i) {
+	44: [//44
+	function(t, e, i) {
 		!
 		function(t) {
 			"use strict";
@@ -2565,7 +2608,8 @@ function() {
 			return this || "object" == typeof self && self
 		}() || Function("return this")())
 	}, {}],
-	45: [function(t, e, i) {
+	45: [//45
+	function(t, e, i) {
 		!
 		function() {
 			"use strict";
@@ -2690,7 +2734,8 @@ function() {
 			}))
 		}()
 	}, {}],
-	46: [function(t, e, i) {
+	46: [//46
+	function(t, e, i) {
 		function n(t) {
 			var e = this;
 			e._t = e.transform, e.a = e.d = 1, e.b = e.c = e.e = e.f = 0, t && (e.context = t).setTransform(1, 0, 0, 1, 0, 0)
@@ -2843,12 +2888,14 @@ function() {
 			}
 		}, void 0 !== i && (i.MatrixLT = n)
 	}, {}],
-	47: [function(t, e, i) {
+	47: [//47
+	function(t, e, i) {
 		e.exports = function(t) {
 			return t && "object" == typeof t && "function" == typeof t.copy && "function" == typeof t.fill && "function" == typeof t.readUInt8
 		}
 	}, {}],
-	48: [function(t, e, i) {
+	48: [//48
+	function(t, e, i) {
 		(function(e, n) {
 			var r = /%[sdj%]/g;
 			i.format = function(t) {
@@ -3042,7 +3089,8 @@ function() {
 		42: 42,
 		47: 47
 	}],
-	49: [function(t, e, i) {
+	49: [//49
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(23)),
@@ -3115,7 +3163,8 @@ function() {
 		50: 50,
 		7: 7
 	}],
-	50: [function(t, e, i) {
+	50: [//50
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(23)),
@@ -3224,7 +3273,8 @@ function() {
 		51: 51,
 		7: 7
 	}],
-	146: [function(t, e, i) {
+	146: [//146
+	function(t, e, i) {
 		"use strict";
 		e.exports = function(t) {
 			return void 0 !== t.__view ? t : (t.__view = new DataView(t), t.position = 0, t.u8 = function() {
@@ -3244,7 +3294,8 @@ function() {
 			}, t)
 		}
 	}, {}],
-	51: [function(t, e, i) {
+	51: [//51
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -3417,7 +3468,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	52: [function(t, e, i) {
+	52: [//52
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -3541,7 +3593,8 @@ function() {
 		58: 58,
 		7: 7
 	}],
-	58: [function(t, e, i) {
+	58: [//58
+	function(t, e, i) {
 		"use strict";
 		var n = t(74);
 
@@ -3568,7 +3621,8 @@ function() {
 	}, {
 		74: 74
 	}],
-	53: [function(t, e, i) {
+	53: [//53
+	function(t, e, i) {
 		"use strict";
 		var n = t(96),
 			r = new Image;
@@ -3601,7 +3655,8 @@ function() {
 	}, {
 		96: 96
 	}],
-	96: [function(t, e, i) {
+	96: [//96
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -3638,7 +3693,8 @@ function() {
 		62: 62,
 		87: 87
 	}],
-	54: [function(t, e, i) {
+	54: [//54
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			SKILL_TRIGGER_TYPE: {
@@ -3703,7 +3759,8 @@ function() {
 			}
 		}
 	}, {}],
-	55: [function(t, e, i) {
+	55: [//55
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -3901,7 +3958,8 @@ function() {
 		89: 89,
 		9: 9
 	}],
-	59: [function(t, e, i) {
+	59: [//59
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(22)),
 			r = {
@@ -3932,7 +3990,8 @@ function() {
 		12: 12,
 		22: 22
 	}],
-	89: [function(t, e, i) {
+	89: [//89
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -4342,7 +4401,8 @@ function() {
 		98: 98,
 		99: 99
 	}],
-	56: [function(t, e, i) {
+	56: [//56
+	function(t, e, i) {
 		"use strict";
 		var n = {},
 			r = {
@@ -4366,7 +4426,8 @@ function() {
 			return a[t]
 		}, e.exports = n
 	}, {}],
-	57: [function(t, e, i) {
+	57: [//57
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
 			r = {
@@ -4519,7 +4580,8 @@ function() {
 		12: 12,
 		8: 8
 	}],
-	74: [function(t, e, i) {
+	74: [//74
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -4564,7 +4626,8 @@ function() {
 		73: 73,
 		9: 9
 	}],
-	60: [function(t, e, i) {
+	60: [//60
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(23)),
@@ -4760,7 +4823,8 @@ function() {
 		78: 78,
 		82: 82
 	}],
-	67: [function(t, e, i) {
+	67: [//67
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -5103,7 +5167,8 @@ function() {
 		73: 73,
 		79: 79
 	}],
-	82: [function(t, e, i) {
+	82: [//82
+	function(t, e, i) {
 		"use strict";
 		var n = t(146);
 		e.exports = function(t) {
@@ -5302,12 +5367,27 @@ function() {
 				}
 				delete f[V].movieStartCode, delete f[V].movieEndCode
 			}
-			return d
+			/*
+			if(d.name == 'assets/flash/ui/live/live_title.flsh')
+			{
+				var QW = [82, 83, 84, 85, 86, 87, 88, 89,
+						  145, 146, 147, 148, 149, 150, 151, 152,
+						  208, 209, 210, 211, 212, 213, 214, 215, 216];
+				var FD = d.movies[3].frames[33].instructions;
+				//console.log(FD);
+				QW.forEach(function(WE)
+				{
+					d.movies[3].frames[WE].instructions = FD;
+				});
+				console.log(d);
+			}*/
+			return d;
 		}
 	}, {
 		146: 146
 	}],
-	78: [function(t, e, i) {
+	78: [//78
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -5377,7 +5457,8 @@ function() {
 		7: 7,
 		75: 75
 	}],
-	77: [function(t, e, i) {
+	77: [//77
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -5417,7 +5498,8 @@ function() {
 		7: 7,
 		75: 75
 	}],
-	76: [function(t, e, i) {
+	76: [//76
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -5470,7 +5552,8 @@ function() {
 		7: 7,
 		75: 75
 	}],
-	61: [function(t, e, i) {
+	61: [//61
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -5608,7 +5691,8 @@ function() {
 		79: 79,
 		9: 9
 	}],
-	79: [function(t, e, i) {
+	79: [//79
+	function(t, e, i) {
 		"use strict";
 		var n = t(45).sprintf;
 
@@ -5638,7 +5722,8 @@ function() {
 	}, {
 		45: 45
 	}],
-	65: [function(t, e, i) {
+	65: [//65
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(17)),
@@ -5892,7 +5977,8 @@ function() {
 		79: 79,
 		9: 9
 	}],
-	66: [function(t, e, i) {
+	66: [//66
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -6074,7 +6160,8 @@ function() {
 		7: 7,
 		79: 79
 	}],
-	62: [function(t, e, i) {
+	62: [//62
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -6283,7 +6370,8 @@ function() {
 		79: 79,
 		9: 9
 	}],
-	75: [function(t, e, i) {
+	75: [//75
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -6349,7 +6437,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	63: [function(t, e, i) {
+	63: [//63
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -6461,7 +6550,8 @@ function() {
 		84: 84,
 		9: 9
 	}],
-	84: [function(t, e, i) {
+	84: [//84
+	function(t, e, i) {
 		(function(i) {
 			"use strict";
 			var n = i.config || {},
@@ -6483,7 +6573,8 @@ function() {
 		85: 85,
 		86: 86
 	}],
-	69: [function(t, e, i) {
+	69: [//69
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -6599,7 +6690,8 @@ function() {
 		71: 71,
 		73: 73
 	}],
-	64: [function(t, e, i) {
+	64: [//64
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -6903,7 +6995,8 @@ function() {
 		84: 84,
 		9: 9
 	}],
-	73: [function(t, e, i) {
+	73: [//73
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(17)),
@@ -7031,7 +7124,8 @@ function() {
 		72: 72,
 		9: 9
 	}],
-	68: [function(t, e, i) {
+	68: [//68
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7078,7 +7172,8 @@ function() {
 		73: 73,
 		81: 81
 	}],
-	81: [function(t, e, i) {
+	81: [//81
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7193,7 +7288,8 @@ function() {
 		84: 84,
 		92: 92
 	}],
-	71: [function(t, e, i) {
+	71: [//71
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7300,7 +7396,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	70: [function(t, e, i) {
+	70: [//70
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7343,7 +7440,8 @@ function() {
 		71: 71,
 		73: 73
 	}],
-	72: [function(t, e, i) {
+	72: [//72
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7529,7 +7627,8 @@ function() {
 		7: 7,
 		73: 73
 	}],
-	80: [function(t, e, i) {
+	80: [//80
+	function(t, e, i) {
 		"use strict";
 		window.assert = function(t, e) {
 			if (window.onerror = null, e || (e = ""), !t) throw window.alert("Assert failure: " + new Error(e).stack), new Error(e)
@@ -7571,7 +7670,8 @@ function() {
 			return Math.max(Math.min(i, e), t)
 		}
 	}, {}],
-	92: [function(t, e, i) {
+	92: [//92
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -7711,7 +7811,8 @@ function() {
 		87: 87,
 		9: 9
 	}],
-	83: [function(t, e, i) {
+	83: [//83
+	function(t, e, i) {
 		"use strict";
 		var n, r = t(12),
 			a = r(t(19)),
@@ -7983,7 +8084,8 @@ function() {
 		84: 84,
 		92: 92
 	}],
-	85: [function(t, e, i) {
+	85: [//85
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			init: function() {},
@@ -8023,7 +8125,8 @@ function() {
 			}
 		}
 	}, {}],
-	86: [function(t, e, i) {
+	86: [//86
+	function(t, e, i) {
 		"use strict";
 		var n, r, a, s, o = !1,
 			u = {},
@@ -8085,9 +8188,7 @@ function() {
 				r && r.stop(), a = t, r = _(t), n = !1
 			},
 			initOnClickForLive: function() {
-				// Finder:00003
 				try {
-					console.log('00003');
 					o.resume()
 				} catch (t) {}
 			},
@@ -8135,7 +8236,8 @@ function() {
 			}
 		}
 	}, {}],
-	87: [function(t, e, i) {
+	87: [//87
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(6)),
@@ -8272,7 +8374,8 @@ function() {
 		73: 73,
 		9: 9
 	}],
-	88: [function(t, e, i) {
+	88: [//88
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -8349,7 +8452,8 @@ function() {
 		73: 73,
 		9: 9
 	}],
-	91: [function(t, e, i) {
+	91: [//91
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -8393,7 +8497,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	98: [function(t, e, i) {
+	98: [//98
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -8455,7 +8560,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	95: [function(t, e, i) {
+	95: [//95
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(19)),
@@ -8556,7 +8662,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	94: [function(t, e, i) {
+	94: [//94
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -8655,7 +8762,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	99: [function(t, e, i) {
+	99: [//99
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(21)),
@@ -8861,7 +8969,8 @@ function() {
 		87: 87,
 		9: 9
 	}],
-	90: [function(t, e, i) {
+	90: [//90
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -8909,7 +9018,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	93: [function(t, e, i) {
+	93: [//93
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -9005,7 +9115,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	97: [function(t, e, i) {
+	97: [//97
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -9082,7 +9193,8 @@ function() {
 		7: 7,
 		87: 87
 	}],
-	100: [function(t, e, i) {
+	100: [//100
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(22));
 		window.LivePlayer = function(e, i) {
@@ -9091,9 +9203,49 @@ function() {
 			var r = t(81);
 			r.init(e), r.go();
 			var a = t(83);
-			a.addTexbArray(["/assetRaw/assets/image/live/notes/notes_icon/tx_notes_icon.texb", "/assetRaw/assets/image/ui/live/tx_live_play.texb", "/assetRaw/assets/image/ui/live/tx_live.texb", "/assetRaw/assets/image/ui/live/tx_l_gauge_19.texb", "/assetRaw/assets/image/ui/common/tx_common_others.texb", "/assetRaw/assets/image/ui/common/tx_com_win_07.texb", "/assetRaw/assets/flash/ui/live/img/tx_live_play.texb", "/assetRaw/assets/flash/ui/live/img/tx_skill_effect.texb", "/assetRaw/assets/flash/ui/live/img/tx_live.texb", "/assetRaw/assets/flash/ui/live/img/tx_combo_number.texb", "/assetRaw/assets/flash/ui/live/img/tx_all_perfect.texb", "/assetRaw/assets/flash/ui/live/img/tx_all_perfect2.texb", "/assetRaw/assets/flash/ui/live/img/tx_effort_point_box_others.texb", "/assetRaw/assets/flash/ui/live/img/tx_ef_312.texb", "/assetRaw/assets/flash/ui/live/img/tx_ef_306_1.texb", "/assetRaw/assets/flash/ui/event/img/tx_ef_815_challenge.texb", "/assetRaw/assets/flash/ui/event/img/tx_quest.texb", "/assetRaw/assets/flash/ui/event/img/tx_team.texb", "/assetRaw/assets/flash/ui/event/img/tx_ef_808.texb"]), a.addUIArray(["/asset/assets/ui/live/game/ui_live.json", "/asset/assets/ui/live/game/ui_in_game_menu.json", "/asset/assets/ui/live/game/elements/ui_count_down.json", "/asset/assets/ui/live/game/ui_gain_score.json", "/asset/assets/ui/live/game/ui_character.json", "/asset/assets/ui/common/dialog/ui_dialog_middle.json"]), i.show_mission_target && (a.addUI("/asset/assets/ui/live/game/elements/mission_target/ui_number.json"), a.addUI([null, "/asset/assets/ui/live/game/elements/mission_target/ui_perfect.json", "/asset/assets/ui/live/game/elements/mission_target/ui_great.json", "/asset/assets/ui/live/game/elements/mission_target/ui_good.json", "/asset/assets/ui/live/game/elements/mission_target/ui_love.json"][i.show_mission_target]));
+			a.addTexbArray(["/assetRaw/assets/image/live/notes/notes_icon/tx_notes_icon.texb", 
+				"/assetRaw/assets/image/ui/live/tx_live_play.texb", 
+				"/assetRaw/assets/image/ui/live/tx_live.texb", 
+				"/assetRaw/assets/image/ui/live/tx_l_gauge_19.texb", 
+				"/assetRaw/assets/image/ui/common/tx_common_others.texb", 
+				"/assetRaw/assets/image/ui/common/tx_com_win_07.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_live_play.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_skill_effect.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_live.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_combo_number.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_all_perfect.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_all_perfect2.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_effort_point_box_others.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_ef_312.texb", 
+				"/assetRaw/assets/flash/ui/live/img/tx_ef_306_1.texb", 
+				"/assetRaw/assets/flash/ui/event/img/tx_ef_815_challenge.texb", 
+				"/assetRaw/assets/flash/ui/event/img/tx_quest.texb", 
+				"/assetRaw/assets/flash/ui/event/img/tx_team.texb", 
+				"/assetRaw/assets/flash/ui/event/img/tx_ef_808.texb"]), 
+			a.addUIArray(["/asset/assets/ui/live/game/ui_live.json", 
+				"/asset/assets/ui/live/game/ui_in_game_menu.json", 
+				"/asset/assets/ui/live/game/elements/ui_count_down.json", 
+				"/asset/assets/ui/live/game/ui_gain_score.json", 
+				"/asset/assets/ui/live/game/ui_character.json", 
+				"/asset/assets/ui/common/dialog/ui_dialog_middle.json"]), 
+			i.show_mission_target && (a.addUI("/asset/assets/ui/live/game/elements/mission_target/ui_number.json"), 
+				a.addUI([null, "/asset/assets/ui/live/game/elements/mission_target/ui_perfect.json", 
+					"/asset/assets/ui/live/game/elements/mission_target/ui_great.json", 
+					"/asset/assets/ui/live/game/elements/mission_target/ui_good.json", 
+					"/asset/assets/ui/live/game/elements/mission_target/ui_love.json"][i.show_mission_target]));
 			var s = "/assetRaw/assets/flash/ui/live/";
-			a.addFlsh(s + "live_timing.flsh"), a.addFlsh(s + "live_combo_number.flsh"), a.addFlsh(s + "live_notes.flsh"), a.addFlsh(s + "live_fullcombo.flsh"), a.addFlsh(s + "live_result_perfect.flsh"), a.addFlsh(s + "live_title.flsh"), a.addFlsh(s + "live_clear.flsh"), a.addFlsh(s + "live_scoregauge.flsh"), a.addFlsh(s + "live_notes_hold_circle.flsh"), i.effect_flag && -1 != i.cutin_setting && a.addFlsh(s + "live_combo_cheer.flsh"), -1 != i.cutin_setting && (a.addFlsh(s + "live_notes_bomb.flsh"), a.addFlsh(s + "live_notes_hold_effect.flsh"), a.addFlsh(s + "live_center.flsh")), i.base_score && (a.addFlsh(s + "live_skill_motion.flsh"), a.addFlsh(s + "live_skill_ef_01.flsh"), a.addFlsh(s + "live_skill_ef_02.flsh"), 0 == i.cutin_setting ? a.addFlsh(s + "live_cut_in.flsh") : 1 == i.cutin_setting && a.addFlsh(s + "live_cut_in_midium.flsh")), i.show_mission_target && a.addFlsh("/assetRaw/assets/flash/ui/event/event_ef_31.flsh"), a.addImageArray(i.lives.map(function(t) {
+			a.addFlsh(s + "live_timing.flsh"), a.addFlsh(s + "live_combo_number.flsh"), 
+			a.addFlsh(s + "live_notes.flsh"), a.addFlsh(s + "live_fullcombo.flsh"), 
+			a.addFlsh(s + "live_result_perfect.flsh"), a.addFlsh(s + "live_title.flsh"), 
+			a.addFlsh(s + "live_clear.flsh"), a.addFlsh(s + "live_scoregauge.flsh"), 
+			a.addFlsh(s + "live_notes_hold_circle.flsh"), 
+			i.effect_flag && -1 != i.cutin_setting && a.addFlsh(s + "live_combo_cheer.flsh"), 
+			-1 != i.cutin_setting && (a.addFlsh(s + "live_notes_bomb.flsh"), 
+			a.addFlsh(s + "live_notes_hold_effect.flsh"), a.addFlsh(s + "live_center.flsh")), 
+			i.base_score && (a.addFlsh(s + "live_skill_motion.flsh"), 
+			a.addFlsh(s + "live_skill_ef_01.flsh"), a.addFlsh(s + "live_skill_ef_02.flsh"), 
+			0 == i.cutin_setting ? a.addFlsh(s + "live_cut_in.flsh") : 1 == i.cutin_setting && a.addFlsh(s + "live_cut_in_midium.flsh")), i.show_mission_target && a.addFlsh("/assetRaw/assets/flash/ui/event/event_ef_31.flsh"), 
+			a.addImageArray(i.lives.map(function(t) {
 				return t.bg
 			})), a.addImageArray(i.lives.filter(function(t) {
 				return t.jacket_icon
@@ -9130,7 +9282,8 @@ function() {
 		81: 81,
 		83: 83
 	}],
-	101: [function(t, e, i) {
+	101: [//101
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(19)),
 			r = t(81),
@@ -9146,9 +9299,9 @@ function() {
 
 		function d() {
 			//点击屏幕开始游戏；点此自动播放；点击全屏
-			var t = new o(null, 60, 480, 75, 255, "#FFFFFF", "sans-serif", 20, f.startGame || "\u70b9\u6b64\u5f00\u59cb\u6e38\u620f"),
-				e = new o(null, 60, 480, 535, 255, "#FFFFFF", "sans-serif", 20, f.autoPlay || "\u70b9\u6b64\u770b\u8c31\uff08\u81ea\u52a8\u64ad\u653e\uff09"),
-				i = new o(null, 60, 480, 305, 255, "#FFFFFF", "sans-serif", 20, f.fullScreen || "\u70b9\u6b64\u5207\u6362\u5168\u5c4f");
+			var t = new o(null, 60, 480, 75, 255, "#FFFFFF", "SimHei", 20, f.startGame || "\u70b9\u6b64\u5f00\u59cb\u6e38\u620f"),
+				e = new o(null, 60, 480, 535, 255, "#FFFFFF", "SimHei", 20, f.autoPlay || "\u70b9\u6b64\u770b\u8c31\uff08\u81ea\u52a8\u64ad\u653e\uff09"),
+				i = new o(null, 60, 480, 305, 255, "#FFFFFF", "SimHei", 20, f.fullScreen || "\u70b9\u6b64\u5207\u6362\u5168\u5c4f");
 			t.setAlign("center"), e.setAlign("center"), i.setAlign("center"), t.stageOnly(), e.stageOnly(), i.stageOnly(), h.hookQueue(function(t) {
 				return 2 == t.type && (t.y > 500 ? (config.is_auto = !0, l.initOnClickForLive(), _ = !0) : t.y < 140 ? (config.is_auto = !1, l.initOnClickForLive(), _ = !0) : t.y > 280 && t.y < 360 && r.switchFullscreen(), !0)
 			})
@@ -9156,11 +9309,12 @@ function() {
 		e.exports = {
 			setup: function(e) {
 				h = a.getInstance();
-				var i = new s(null, 0, -88, 0, config.lives[0].bg);
-				i.stageOnly(), i.setColor(127, 16777215), e ?
+				var i = new s(null, 0, -88, 0, config.lives[0].bg);//127
+				var x = config.custom? 255: 127;
+				i.stageOnly(), i.setColor(x, 16777215), e ?
 				function(e) {
 					var i = new o(null, 60, 300, 85, 255, "#FFFFFF", "sans-serif", 20, ""),
-						r = new o(null, 60, 480, 535, 255, "#FFFFFF", "sans-serif", 20, "Replay"),
+						r = new o(null, 60, 480, 535, 255, "#FFFFFF", "SimHei", 20, "Replay"),
 						a = new o(null, 60, 660, 85, 255, "#FFFFFF", "sans-serif", 20, "");
 					i.setAlign("center"), r.setAlign("center"), a.setAlign("center");
 					var s = !1;
@@ -9206,7 +9360,8 @@ function() {
 		96: 96,
 		97: 97
 	}],
-	136: [function(t, e, i) {
+	136: [//136
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(19)),
 			r = t(91),
@@ -9309,7 +9464,8 @@ function() {
 		96: 96,
 		97: 97
 	}],
-	109: [function(t, e, i) {
+	109: [//109
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			Trigger: {}
@@ -9337,7 +9493,8 @@ function() {
 		129: 129,
 		130: 130
 	}],
-	144: [function(t, e, i) {
+	144: [//144
+	function(t, e, i) {
 		"use strict";
 		var n, r, a, s, o = t(12)(t(19)),
 			u = t(81),
@@ -9432,6 +9589,7 @@ function() {
 					"%title_text": e.jacket_text || blank,
 					"%title_frame": e.jacket_frame || blank
 				});
+			//return null
 			return n.play(), n.gotoFrame(i + "_start"), n.reachFrame(i + "_end", t), n
 		}
 		function D(t, e) {
@@ -9495,7 +9653,8 @@ function() {
 			for (var e in config.key_config) if (t.key == config.key_config[e]) return t.preventDefault(), void("keydown" == t.type ? y.tap(9 - e) : y.isolate(9 - e))
 		}
 		function Z() {
-			config.is_auto && config.ui_auto && new c(C, 1e4, 357, 120, config.ui_auto), a = R.playing, config.character ? (r.setAnimSpline([{
+			config.is_auto && config.ui_auto && new c(C, 1e4, 357, 120, config.ui_auto), a = R.playing, 
+			(!config.custom) ? (r.setAnimSpline([{ // I fianlly found it....99999
 				target: "SPL_MODIFY_R",
 				keys: [
 					[0, 1],
@@ -9519,6 +9678,7 @@ function() {
 		}
 		e.exports = {
 			setup: function() {
+				//00004
 				a = R.loading, n = 0, config.is_auto || (s = new _(null, -88, 0, 1136, 640, 1, K), window.onkeydown = catchErr(q), window.onkeyup = catchErr(q)), (C = new l(null, g.BACKGROUND_PRIORITY, 0, 0, "assets/ui/live/game/ui_live.json")).setNodeVisible("button_pause", !0), C.setCallback("button_pause", T.onClick(function() {
 					v.playSE("assets/sound/ui/se/SE_001.mp3"), a = R.paused, v.pauseLive(), P = {}, N = [], O = {}, y.clearTouchMap(), function() {
 						C.setNodeVisible("button_pause", !1);
@@ -9633,7 +9793,8 @@ function() {
 		97: 97,
 		98: 98
 	}],
-	102: [function(t, e, i) {
+	102: [//102
+	function(t, e, i) {
 		"use strict";
 		var n = t(140),
 			r = t(138),
@@ -9771,7 +9932,8 @@ function() {
 		140: 140,
 		145: 145
 	}],
-	138: [function(t, e, i) {
+	138: [//138
+	function(t, e, i) {
 		"use strict";
 		var n, r = t(12),
 			a = r(t(19)),
@@ -10004,7 +10166,8 @@ function() {
 		8: 8,
 		97: 97
 	}],
-	145: [function(t, e, i) {
+	145: [//145
+	function(t, e, i) {
 		"use strict";
 		var n, r, a, s, o = t(12)(t(8)),
 			u = t(89),
@@ -10191,7 +10354,8 @@ function() {
 		96: 96,
 		97: 97
 	}],
-	140: [function(t, e, i) {
+	140: [//140
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
 			r = t(109),
@@ -10342,7 +10506,8 @@ function() {
 		57: 57,
 		8: 8
 	}],
-	103: [function(t, e, i) {
+	103: [//103
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(19)),
 			r = t(139),
@@ -10508,14 +10673,15 @@ function() {
 		19: 19,
 		54: 54
 	}],
-	139: [function(t, e, i) {
+	139: [//139
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			BACKGROUND_PRIORITY: 0,
 			STAR_PRIORITY: 2800,
 			COMBO_PRIORITY: 2900,
 			NOTE_PRIORITY: 2950,
-			PAUSEMENU_PRIORITY: 3e3,
+			PAUSEMENU_PRIORITY: 3000,
 			CHARACTER_PRIORITY: 2405,
 			CHARACTER_COUNT: 9,
 			CHARACTER_ANGLE: 22.5,
@@ -10523,13 +10689,13 @@ function() {
 			CHARACTER_CUTIN_OFFSET_Y: 320,
 			ICON_OFFSET_X: 64,
 			ICON_OFFSET_Y: 64,
-			FULLCOMBO_DISPLAY_MSEC: 2e3,
+			FULLCOMBO_DISPLAY_MSEC: 2000,
 			X: 480,
 			Y: 160,
 			R: 400,
 			SCORE_X: 480,
 			SCORE_Y: 320,
-			SCORE_PRIORITY: 3e3,
+			SCORE_PRIORITY: 3000,
 			ACCURACY: {
 				perfect: 16,
 				great: 40,
@@ -10547,7 +10713,8 @@ function() {
 			}
 		}
 	}, {}],
-	104: [function(t, e, i) {
+	104: [//104
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
 			r = t(97),
@@ -10665,7 +10832,8 @@ function() {
 		8: 8,
 		97: 97
 	}],
-	105: [function(t, e, i) {
+	105: [//105
+	function(t, e, i) {
 		"use strict";
 		var n = t(52),
 			r = (t(106), t(53)),
@@ -10698,7 +10866,8 @@ function() {
 		53: 53,
 		89: 89
 	}],
-	106: [function(t, e, i) {
+	106: [//106
+	function(t, e, i) {
 		"use strict";
 		e.exports = {
 			CountDown: t(105),
@@ -10708,7 +10877,8 @@ function() {
 		105: 105,
 		107: 107
 	}],
-	107: [function(t, e, i) {
+	107: [//107
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
 			r = t(89),
@@ -10808,7 +10978,8 @@ function() {
 		89: 89,
 		97: 97
 	}],
-	108: [function(t, e, i) {
+	108: [//108
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
 			r = t(89),
@@ -10881,7 +11052,8 @@ function() {
 		8: 8,
 		89: 89
 	}],
-	114: [function(t, e, i) {
+	114: [//114
+	function(t, e, i) {
 		"use strict";
 		var n = null,
 			r = {
@@ -10916,7 +11088,8 @@ function() {
 		109: 109,
 		134: 134
 	}],
-	112: [function(t, e, i) {
+	112: [//112
+	function(t, e, i) {
 		"use strict";
 		var n = {
 			map: {},
@@ -10937,7 +11110,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	113: [function(t, e, i) {
+	113: [//113
+	function(t, e, i) {
 		"use strict";
 		var n = t(109),
 			r = {
@@ -10963,7 +11137,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	111: [function(t, e, i) {
+	111: [//111
+	function(t, e, i) {
 		"use strict";
 		var n = t(109),
 			r = {
@@ -11014,7 +11189,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	128: [function(t, e, i) {
+	128: [//128
+	function(t, e, i) {
 		"use strict";
 		var n = {
 			initialize: function() {
@@ -11036,7 +11212,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	115: [function(t, e, i) {
+	115: [//115
+	function(t, e, i) {
 		"use strict";
 		var n = t(109),
 			r = {};
@@ -11237,7 +11414,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	130: [function(t, e, i) {
+	130: [//130
+	function(t, e, i) {
 		"use strict";
 		var n = t(54),
 			r = t(109),
@@ -11320,7 +11498,8 @@ function() {
 		142: 142,
 		54: 54
 	}],
-	118: [function(t, e, i) {
+	118: [//118
+	function(t, e, i) {
 		"use strict";
 		var n = t(109),
 			r = {
@@ -11338,7 +11517,8 @@ function() {
 	}, {
 		109: 109
 	}],
-	110: [function(t, e, i) {
+	110: [//110
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(19)),
 			r = t(54),
@@ -11470,7 +11650,8 @@ function() {
 		54: 54,
 		56: 56
 	}],
-	116: [function(t, e, i) {
+	116: [//116
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(8)),
@@ -11552,7 +11733,8 @@ function() {
 		7: 7,
 		8: 8
 	}],
-	129: [function(t, e, i) {
+	129: [//129
+	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(22)),
 			r = t(54),
@@ -11585,7 +11767,8 @@ function() {
 		22: 22,
 		54: 54
 	}],
-	126: [function(t, e, i) {
+	126: [//126
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -11644,7 +11827,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	127: [function(t, e, i) {
+	127: [//127
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -11714,7 +11898,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	124: [function(t, e, i) {
+	124: [//124
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -11817,7 +12002,8 @@ function() {
 		54: 54,
 		7: 7
 	}],
-	122: [function(t, e, i) {
+	122: [//122
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -11957,7 +12143,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	121: [function(t, e, i) {
+	121: [//121
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12002,7 +12189,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	123: [function(t, e, i) {
+	123: [//123
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12052,7 +12240,8 @@ function() {
 		54: 54,
 		7: 7
 	}],
-	117: [function(t, e, i) {
+	117: [//117
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12132,7 +12321,8 @@ function() {
 		54: 54,
 		7: 7
 	}],
-	119: [function(t, e, i) {
+	119: [//119
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12189,7 +12379,8 @@ function() {
 		54: 54,
 		7: 7
 	}],
-	125: [function(t, e, i) {
+	125: [//125
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12265,7 +12456,8 @@ function() {
 		5: 5,
 		7: 7
 	}],
-	120: [function(t, e, i) {
+	120: [//120
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(5)),
@@ -12322,7 +12514,8 @@ function() {
 		54: 54,
 		7: 7
 	}],
-	134: [function(t, e, i) {
+	134: [//134
+	function(t, e, i) {
 		"use strict";
 		var n = t(12),
 			r = n(t(8)),
@@ -12769,7 +12962,8 @@ function() {
 		84: 84,
 		97: 97
 	}],
-	142: [function(t, e, i) {
+	142: [//142
+	function(t, e, i) {
 		"use strict";
 		var n, r = t(12)(t(8)),
 			a = t(109),
@@ -12966,7 +13160,8 @@ function() {
 		54: 54,
 		8: 8
 	}],
-	131: [function(t, e, i) {
+	131: [//131
+	function(t, e, i) {
 		"use strict";
 		var n = t(139),
 			r = t(133),
@@ -13140,7 +13335,8 @@ function() {
 		133: 133,
 		139: 139
 	}],
-	133: [function(t, e, i) {
+	133: [//133
+	function(t, e, i) {
 		"use strict";
 		var n = t(90),
 			r = t(97),
@@ -13298,7 +13494,8 @@ function() {
 		90: 90,
 		97: 97
 	}],
-	132: [function(t, e, i) {
+	132: [//132
+	function(t, e, i) {
 		"use strict";
 		var n, r = t(12),
 			a = r(t(19)),
@@ -13407,7 +13604,8 @@ function() {
 		91: 91,
 		96: 96
 	}],
-	141: [function(t, e, i) {
+	141: [//141
+	function(t, e, i) {
 		"use strict";
 		var n = t(103),
 			r = t(109),
@@ -13443,7 +13641,8 @@ function() {
 		103: 103,
 		109: 109
 	}],
-	135: [function(t, e, i) {
+	135: [//135
+	function(t, e, i) {
 		"use strict";
 		var n = t(131),
 			r = t(133),
@@ -13477,7 +13676,8 @@ function() {
 		133: 133,
 		139: 139
 	}],
-	137: [function(t, e, i) {
+	137: [//137
+	function(t, e, i) {
 		"use strict";
 
 		function n(t, e) {
@@ -13557,7 +13757,8 @@ function() {
 			}
 		}
 	}, {}],
-	143: [function(t, e, i) {
+	143: [//143
+	function(t, e, i) {
 		"use strict";
 		var n = t(97),
 			r = t(139),
