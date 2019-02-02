@@ -1,7 +1,7 @@
 html{font-family: SimHei, Microsoft Yahei;}
 body{background-color: #fff1fb;}
-.navbar, .card-header, .btn {background-color: #ff6699;}
-.navbar-brand, .btn {color: #fff;}
+.navbar, .card-header, .btn, .footer{background-color: #ff6699;}
+.navbar-brand, .btn, .footer{color: #fff;}
 table {
   width: 90%;
   margin: 0 auto;
@@ -13,6 +13,7 @@ table th,table td {
   border:1px solid #888;
 }
 .range-slider{ margin: 50px 0 0 0; }
+/*.card a{color: #ff6699*/
 .range-slider input[type="range"]{
     width: calc(100% - (68px));
     height: 2px;

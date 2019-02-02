@@ -4,7 +4,6 @@ window.onload = function()
 {
    if(localStorage.getItem('livesettings'))
    {
-      console.log(3e3)
       console.log('exist livesettings!');
       try {
         livesettings = JSON.parse(localStorage.getItem('livesettings'))

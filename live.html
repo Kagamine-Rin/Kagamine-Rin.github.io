@@ -20,7 +20,6 @@ if (!window.Symbol || ![].includes) { //Safari
   script.async = false
   script.src = '/static/maxmize_window.js'
   document.getElementsByTagName("head")[0].appendChild(script)
-  window.alert("Warning: This webpage is not completely adjusted to Safari.")
 }
 </script>
 <script>
@@ -42,8 +41,6 @@ if (!window.Symbol || ![].includes) { //Safari
     {
     	var b = '/live/' + q + '/' + d + '.js';
     }
-    console.log(q);
-    console.log(d);
     $.getScript(b, function()
     {
       $(document).ready(function () {
@@ -89,14 +86,29 @@ function load_callback(s)
 	})
   if(s==1){ lives[0].non_black = 1;} else {lives[0].non_black = 0;}
 	document.title = lives[0].name + ' - ' + difficulty[lives[0].difficulty] + " - Ayaselive";
-	var dummy = '/asset/assets/flash/ui/live/img/ef_331_001.png';
+	var dummy = '/asset/assets/flash/ui/live/img/ef_701_000.png';
+  var deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
 	if (lives[0].member_category == 0)
-	  dummy = '/static/images/null.png';
+  {
+     dummy = '/static/images/null.png';
+     deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
+  }
+  else if(lives[0].member_category == 1)
+  {
+    var u = '/asset/sif_png/';
+     deck = [u + 'eli.png', u + 'nozomi.png', u + 'nico.png', u + 'umi.png', u + 'honoka.png',
+             u + 'kotori.png', u + 'rin.png', u + 'maki.png', u + 'hanayo.png']
+  }
 	else if (lives[0].member_category == 2)
-	  dummy = '/asset/assets/flash/ui/live/img/ef_701_000.png';
+	{  
+      dummy = '/asset/assets/flash/ui/live/img/ef_701_000.png';
+      deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
+  }
 	else if (lives[0].member_category == 3)
-	  dummy = lives[0].deck || dummy;
-	var deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
+  {
+    dummy = lives[0].deckImages || dummy;
+    deck = [dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy];
+  }
 	initLive(deck);
 }
 var total = false;
@@ -207,7 +219,6 @@ function initLive(deck) {
         return e + b[i]
       })
     }),
-    
     lives: lives.map(function (live) {
       if (live.json_name) { //custom live
         return {
@@ -283,7 +294,23 @@ function initLive(deck) {
   if (liveClearVE) {
     config.ve_clear = liveClearVE
   }
-  
+  config.rank = [650000, 800000, 900000, 950000]
+  var note_score = 0;
+  var x = 0;
+  var effects = [0, 1, 1, 1.25, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.625];
+  lives[0]["notes_list"].forEach(function(note)
+  {
+    x ++;
+    var u = effects[note['effect']];
+    if(x>800) u*=1.35;
+    else if(x>600) u*=1.3;
+    else if(x>400) u*=1.25;
+    else if(x>200) u*=1.2;
+    else if(x>100) u*=1.15;
+    else if(x>50) u*=1.1;
+    note_score += u;
+  })
+  config.note_score = 800000 / note_score;
   new LivePlayer(canvas, config)
 }
 </script>

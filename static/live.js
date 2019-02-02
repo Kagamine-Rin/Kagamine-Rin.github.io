@@ -3693,7 +3693,7 @@
 		62: 62,
 		87: 87
 	}],
-	54: [//54
+	54: [//54 defination of some types of skills.
 	function(t, e, i) {
 		"use strict";
 		e.exports = {
@@ -3759,7 +3759,7 @@
 			}
 		}
 	}, {}],
-	55: [//55
+	55: [//55 dialog-box
 	function(t, e, i) {
 		"use strict";
 		var n = t(12),
@@ -3958,7 +3958,7 @@
 		89: 89,
 		9: 9
 	}],
-	59: [//59
+	59: [//59 ?
 	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(22)),
@@ -9360,7 +9360,7 @@
 		96: 96,
 		97: 97
 	}],
-	136: [//136
+	136: [//136 draw the curve of perfect,great,good,bad,miss
 	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(19)),
@@ -9932,7 +9932,7 @@
 		140: 140,
 		145: 145
 	}],
-	138: [//138
+	138: [//138 score related
 	function(t, e, i) {
 		"use strict";
 		var n, r = t(12),
@@ -10006,15 +10006,20 @@
 				smile: 0
 			}, l.Combo.initialize(), this.combo_increment_per_success = 1, this.event_point = 0, this.rank_info = e, this.rank = 0, this.setCalcClearGauge(e), l.SkillEffect.PerfectBonus.initialize()
 		}, h.calculateScore = function(t, e, i) {
-			var n = {
-				perfect: 1.25,
-				great: 1.1,
-				good: 1,
-				bad: .5,
-				miss: 0
-			},
-				r = this.total_scores[t.attribute - 1] || 0;
-			return r *= n[i] || 1, r *= l.Combo.getScoreRate(), r = l.SkillEffect.PerfectBonus.apply(r), this.live_member_category == e.member_category && (r *= 1.1), t.is_hold && (r *= n[t.first_touch] || 1), this.score_factor_map[t.effect] && (r *= this.score_factor_map[t.effect]), t.color !== e.attribute && 5 !== e.attribute_id || (r *= 1.1), r = Math.floor(r / 100), r += l.SkillEffect.PerfectBonus.sumBonus(i), l.Combo.applyFixedValueBonus(r)
+			var n = {perfect: 1.25,great: 1.1,good: 1,bad: .5,miss: 0};
+			//var n = {perfect: 1,great: 0.88,good: 0.8,bad: 0.4,miss: 0};
+			r = this.total_scores[t.attribute - 1] || 0;
+			r *= n[i] || 1;
+			r *= l.Combo.getScoreRate();
+					//r = l.SkillEffect.PerfectBonus.apply(r), 
+			//r *= this.live_member_category == e.member_category ? 1.1: 1;
+			t.is_hold && (r *= n[t.first_touch] || 1);
+			this.score_factor_map[t.effect] && (r *= this.score_factor_map[t.effect]); 
+			//t.color !== e.attribute && 5 !== e.attribute_id || (r *= 1.1);
+			//r = Math.floor(r / 100); 
+					//r += l.SkillEffect.PerfectBonus.sumBonus(i), 
+					//l.Combo.applyFixedValueBonus(r)
+			return r;
 		}, h.getMaxTotalHp = function() {
 			return this.max_total_hp
 		}, h.getLove = function() {
@@ -10030,7 +10035,7 @@
 		}, h.view.commitScore = function(t, e) {
 			this.effect_on && c.showScore(this.group_gain_score, t), this.task_form.setAnim("score_increment"), this.score_label.set(e)
 		}, h.commitScore = function() {
-			this.change_score < 1 || (this.score += this.change_score, this.view.commitScore(this.change_score, this.score), this.change_score = 0, this.updateClearGauge())
+			this.change_score < 1 || (this.score += this.change_score, this.view.commitScore(Math.round(this.change_score), this.score <= 1000000? Math.round(this.score): 1000000), this.change_score = 0, this.updateClearGauge())
 		}, h.addScore = function(t, e) {
 			t < 1 || (this.change_score += t, this.attribute_score[e] += t)
 		}, h.addScoreBySmile = function(t) {
@@ -10146,7 +10151,7 @@
 		}, h.resetHealValue = function() {
 			this.heal_value = 0
 		}, h.prepareForLive = function() {
-			this.initializeHp(), this.view.setTotalHp(this.total_hp), this.updateHpGauge(), this.total_scores = config.base_score || [5e4, 5e4, 5e4], this.live_member_category = config.__currentLive.member_category, this.score_factor_map = {
+			this.initializeHp(), this.view.setTotalHp(this.total_hp), this.updateHpGauge(), this.total_scores = config.base_score || [config.note_score, config.note_score, config.note_score], this.live_member_category = config.__currentLive.member_category, this.score_factor_map = {
 				11: .5,
 				12: .5,
 				13: .5
@@ -10166,7 +10171,7 @@
 		8: 8,
 		97: 97
 	}],
-	145: [//145
+	145: [//145 skill related
 	function(t, e, i) {
 		"use strict";
 		var n, r, a, s, o = t(12)(t(8)),
@@ -10354,7 +10359,7 @@
 		96: 96,
 		97: 97
 	}],
-	140: [//140
+	140: [//140 score
 	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
@@ -10713,7 +10718,7 @@
 			}
 		}
 	}, {}],
-	104: [//104
+	104: [//104 combo
 	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
@@ -10832,7 +10837,7 @@
 		8: 8,
 		97: 97
 	}],
-	105: [//105
+	105: [//105 pause-countdown
 	function(t, e, i) {
 		"use strict";
 		var n = t(52),
@@ -10877,7 +10882,7 @@
 		105: 105,
 		107: 107
 	}],
-	107: [//107
+	107: [//107 texiao
 	function(t, e, i) {
 		"use strict";
 		var n = t(12)(t(8)),
@@ -11110,7 +11115,7 @@
 	}, {
 		109: 109
 	}],
-	113: [//113
+	113: [//113 note types 
 	function(t, e, i) {
 		"use strict";
 		var n = t(109),
@@ -11137,7 +11142,7 @@
 	}, {
 		109: 109
 	}],
-	111: [//111
+	111: [//111 score-rate? wtf
 	function(t, e, i) {
 		"use strict";
 		var n = t(109),
@@ -11147,7 +11152,7 @@
 						for (var t = [], e = function(e) {
 								t.push({
 									combo_cnt: 10 * e,
-									score_rate: [
+									score_rate: [ //combo bonus:50,100...
 										[5, 1.1],
 										[10, 1.15],
 										[20, 1.2],
@@ -11182,7 +11187,7 @@
 					return r.score_rate
 				},
 				applyFixedValueBonus: function(t) {
-					return t + n.SkillEffect.ComboBonus.getFixedValueBonus()
+					return t //+ n.SkillEffect.ComboBonus.getFixedValueBonus()
 				}
 			};
 		n.Combo = r
@@ -12280,7 +12285,7 @@
 									return t.combo_count <= e
 								})[0];
 								return i ? i.bonus_rate : 0
-							}(this.__combo_patterns[e], c.getCombo());
+							}(this.__combo_patterns[e], c.getComb());
 						return i ? t * i : t
 					}
 				}, {
@@ -12514,7 +12519,7 @@
 		54: 54,
 		7: 7
 	}],
-	134: [//134
+	134: [//134 notes
 	function(t, e, i) {
 		"use strict";
 		var n = t(12),
@@ -12756,7 +12761,9 @@
 						};
 					if (t.is_first_touch ? i = t.first_touch : t.is_hold ? (i = a(t.getReleaseAccuracy(r), t.is_slide), t.first_touch = t.first_touch || "miss", n = y[i] > y[t.first_touch] ? t.first_touch : i) : n = i = a(t.getTapAccuracy(r), t.is_slide), t.is_same_timing ? (t.timing_sec === this.prev_timing_sec ? (p.addSameTimingPerfectCount(i), p.commitSameTimingPerfectCount()) : (p.resetSameTimingPerfectCount(), p.addSameTimingPerfectCount(i)), this.prev_timing_sec = t.timing_sec) : p.resetSameTimingPerfectCount(), t.isBomb() && p.addStarAccuracyCount(i), !t.is_first_touch) {
 						var s = p.calculateScore(t, d.characters[t.pos], i);
-						if (s = g.SkillEffect.ScoreBonus.apply(s), s = Math.ceil(s * this.bonus_score_rate), p.addScore(s, t.color), i) {
+						if (//s = g.SkillEffect.ScoreBonus.apply(s),
+							//s = Math.ceil(s * this.bonus_score_rate),
+							p.addScore(s, t.color), i) {
 							this.showAccuracy(i), n && g.AccuracyLog.update(n, t);
 							var o = t.score(i);
 							o.combo && (o.combo > 0 ? p.addCombo() : p.resetCombo());
