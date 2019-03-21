@@ -47,10 +47,10 @@ window.rAF = (function(){
 
 function main () {
 	var loadList = [
-		"res/card/Sprite.js",
-		"res/card/Particle.js",
+		"card/Sprite.js",
+		"card/Particle.js",
 		//"res/card/Stage.js",
-		"res/card/Txt.js"
+		"card/Txt.js"
 	];
 
 	var startLoad = function (configPath) {
@@ -93,7 +93,7 @@ function main () {
 	var configFileQueryStr = getQueryStringByName("config_file");
 
 	if (configFileQueryStr === null) {
-		startLoad("res/card/config.js");
+		startLoad("card/config2.js");
 	} else {
 		startLoad(configFileQueryStr);
 	}

@@ -1,0 +1,5 @@
+[
+null,
+{"id":1,"battlerName":"","characterIndex":0,"characterName":"main","classId":1,"equips":[1,1,2,3,0],"faceIndex":0,"faceName":"me","traits":[],"initialLevel":1,"maxLevel":99,"name":"me","nickname":"","note":"","profile":""},
+{"id":2,"battlerName":"Actor1_8","characterIndex":0,"characterName":"u","classId":2,"equips":[2,1,2,3,0],"faceIndex":0,"faceName":"u","traits":[],"initialLevel":1,"maxLevel":99,"name":"you","nickname":"","note":"","profile":""}
+]
