@@ -12,7 +12,7 @@ var config = {"documentTitle":"Happy Birthday!!",
 "For encouraging me whenever I feel down", //5
 "And for all the love you gave me~", //6
 "Now that you have become an adult, I sincerely wish that you can be more independent",//7
-"And learn to take coresponding responsibility for everything you do",//8
+"And learn to take corresponding responsibility for everything you do",//8
 "But most importantly, be yourself, and never give up~",
 "Also, feel easy for the coming collage entrance exam",//14
 "I am sure that you can get the most satisfying result by all the efforts you made~",//15
