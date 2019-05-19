@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #999;
+}
+body.index {
+	background-attachment: scroll;
+	background-image: url(../images/design/bg02.jpg);
+	background-repeat: repeat;
+	background-position: left top;
+}
+body.top {
+	background-color: #999;
+}	
+body.left {
+	background-attachment: scroll;
+	background-image: url(../images/design/left_bg.jpg);
+	background-repeat: repeat;
+	background-position: left top;
+}
+body.right{
+	background-color: #FFFFFF;
+}
+body.bottom {
+	background-attachment: fixed;
+	background-image: url(../images/design/bm1.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}

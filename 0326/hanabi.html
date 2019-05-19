@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Hanabi</title>
+    <style type="text/css">
+      div{
+        font-size:30px;
+  font-weight:bold;
+  color:#ff0000;
+    position: absolute;
+    transition: 1s all;
+  }
+  span {
+    font-size:30px;
+  font-weight:bold;
+  color:#ff0000;
+  position: absolute;
+  }
+    </style>
+    <script>
+      function getRanR(a,b){      // 随机得到a-b的值
+    return Math.floor(Math.random()*(b-a+1)+a);
+}
+function divMove(div){
+    var data = div.data;
+    div.style.left = data.left + 'px';
+    div.style.top = data.top + 'px';
+}
+window.onload = function(){
+//js
+//var tdiv = document.getElementById('div'); // 画运动点
+//document.getElementsByTagName('body')[0].appendChild(tdiv); // 添加节点
+
+var deg = 0;    // 运动角度
+var r = 100;    // 半径
+var center = [300, 300] // 圆心
+var dd = Math.PI/180;   // PI和角度之间的转换
+
+
+var divs = [];  // 保存烟花节点
+var len = 10;   // 烟花节点个数
+var temp = 360 / len;   // 运动轨迹所隔角度
+window.x = 0;
+for(var i = 0; i < len; i++){
+    var tdiv = document.createElement('div');
+    tdiv.innerText = "❤";
+    var tr1 = r;        // 半径
+    deg = i * temp;   // 当前轨迹所在的角度值
+
+    var left = center[0] + Math.cos(deg * dd) * getRanR(0,200); 
+    var topLen = center[1] + Math.sin(deg * dd) * getRanR(0,200); 
+    tdiv.style.left = left +'px';
+    tdiv.style.top = topLen +'px';
+
+    tdiv.data = {      // 存放节点的位置信息
+        deg : deg,
+        r : tr1,
+        left : left,
+        top : topLen
+    };
+    document.getElementsByTagName('body')[0].appendChild(tdiv);
+    divs.push(tdiv);
+}
+
+setInterval(function(){
+    window.history.go(0);
+  },100);
+
+}
+</script>
+  </head>
+</html>
+<body>
+
+</body>
+
