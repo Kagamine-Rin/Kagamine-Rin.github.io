@@ -16,30 +16,52 @@
   position: absolute;
   }
     </style>
-    <script>
-      function getRanR(a,b){      // 随机得到a-b的值
+<script>
+function getRanR(a,b){      // 随机得到a-b的值
     return Math.floor(Math.random()*(b-a+1)+a);
 }
-function divMove(div){
-    var data = div.data;
-    div.style.left = data.left + 'px';
-    div.style.top = data.top + 'px';
+function divMove(div, l, t){
+  if(l==0 && t==0)
+  {
+    var deg = div.data.deg;
+    var left = center[0] + Math.cos(deg * dd) * getRanR(0,200); 
+    var topLen = center[1] + Math.sin(deg * dd) * getRanR(0,200); 
+    //var data = div.data;
+    div.style.left = left + 'px';
+    div.style.top = topLen + 'px';
+  }
+  else
+  {
+    div.style.left = l + 'px';
+    div.style.top = t + 'px';
+  }
 }
+var deg = 0;    // 运动角度
+var r = 100;    // 半径
+var center = [300, 300] // 圆心
+var dd = Math.PI/180;   // PI和角度之间的转换
+var x = 20;
+var currx = 0;
+var pos = [[60, 60],[60,100], [60,140], [100,60], [140, 60],
+[160, 180],[140,140], [100,130], [140,220], [60, 220],
+[100, 240],[250,100], [280,70], [320,70], [350, 100],
+[320, 140],[290,180], [260,220], [300,230], [340, 240],
+[450, 100], [480,70], [520,70], [550,100],
+[440, 140],[435,180],[560,140],[565,180],
+[460,220],[540,220],[500,250]]
+
+var divs = [];  // 保存烟花节点
+var len = 31;   // 烟花节点个数
+var temp = 360 / len;   // 运动轨迹所隔角度
+
+
 window.onload = function(){
 //js
 //var tdiv = document.getElementById('div'); // 画运动点
 //document.getElementsByTagName('body')[0].appendChild(tdiv); // 添加节点
 
-var deg = 0;    // 运动角度
-var r = 100;    // 半径
-var center = [300, 300] // 圆心
-var dd = Math.PI/180;   // PI和角度之间的转换
 
 
-var divs = [];  // 保存烟花节点
-var len = 10;   // 烟花节点个数
-var temp = 360 / len;   // 运动轨迹所隔角度
-window.x = 0;
 for(var i = 0; i < len; i++){
     var tdiv = document.createElement('div');
     tdiv.innerText = "❤";
@@ -48,6 +70,8 @@ for(var i = 0; i < len; i++){
 
     var left = center[0] + Math.cos(deg * dd) * getRanR(0,200); 
     var topLen = center[1] + Math.sin(deg * dd) * getRanR(0,200); 
+    //var left = pos[i][0];
+    //var topLen = pos[i][1];
     tdiv.style.left = left +'px';
     tdiv.style.top = topLen +'px';
 
@@ -59,11 +83,25 @@ for(var i = 0; i < len; i++){
     };
     document.getElementsByTagName('body')[0].appendChild(tdiv);
     divs.push(tdiv);
+    /*document.onclick = function () {
+    for(var i = 0; i < divs.length; i++){
+        divMove(divs[i]);}
+    }*/
 }
 
 setInterval(function(){
-    window.history.go(0);
-  },100);
+    if(currx < x)
+    {
+      for(var i = 0; i < divs.length; i++){
+        divMove(divs[i],0,0);
+      }
+      currx ++;
+    }
+    else
+    for(var i = 0; i < divs.length; i++){
+        divMove(divs[i],pos[i][0],pos[i][1]);
+      }
+  },1500);
 
 }
 </script>
