@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="favicon.ico" rel="Bookmark" type="image/x-icon" />
+	-->
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Happy Children's Day!</title>
+	<link href="" rel="stylesheet" />
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<style type="text/css">
+		.ctxt{
+			background:#E0FFFF;
+			overflow:hidden;
+			margin:0 auto;
+		}
+		.ctxt p{
+			font-family: SimHei;
+			position:relative;
+			margin:0;
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+<div id="" class="ctxt"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	$(".ctxt").width(w);
+	$(".ctxt").height(h);
+	for(var i=0; i<6; i++)
+	{
+		setTimeout(function(){randBalloon(randomnum(60) + 60, w-80, h+90, "🎈")}, i*2000);
+		//randBalloon(i, w, h);
+	}
+	var i = 36;
+ 	setTimeout(function(){randBalloon(i, w/2, h, "我的小宝贝")}, 12000);
+ 	setTimeout(function(){randBalloon(i, w/2, h, "儿童节快乐呀")}, 14000);
+ 	setTimeout(function(){randBalloon(i, w/4, h, "因为你是我的小宝贝")}, 16000);
+ 	setTimeout(function(){randBalloon(i, w/2, h, "所以 我愿意")}, 18000);
+ 	setTimeout(function(){randBalloon(i, w/4, h, "一直陪着你过儿童节")}, 20000);
+ 	setTimeout(function(){randBalloon(i, w/4, h, "在以后的日子里")}, 22000);
+ 	setTimeout(function(){randBalloon(i, w/2, h, "我们两个要")}, 24000);
+ 	setTimeout(function(){randBalloon(i, w/4, h, "一起庆祝这个节日哦")}, 26000);
+ 	setTimeout(function(){randBalloon(i, w/2, h, "最爱你了❤")}, 28000);
+});
+
+function randBalloon(i, w, h, msgtxt)
+{
+	var topPos = randomnum(h);
+	var leftPos = randomnum(w);
+	
+	var newtxt = '<p style="top:'+topPos+'px; left:'+leftPos+'px; font-size:'+i+'px;">'+msgtxt+'</p>';
+	$(".ctxt").prepend(newtxt);
+	//var addTextW = $("#" + id).height();
+	//console.log(addTextW);
+	//var addTextW = topPos;
+	var addTextW = $(".ctxt").find("p").height();
+	$('.ctxt p').animate({top: '-'+addTextW+"px"}, 2000,function(){
+		$(this).hide();
+	});
+}
+
+
+function randomnum(max)
+{
+	return Math.floor(Math.random()*(max+1));
+}
+
+</script>
+ 
+</body>
+</html>
