@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/theme.min.css">
+<link rel="stylesheet" href="/static/style.css">
+<style type="text/css">
+	.miku{
+		background-color: #ffcccc
+	}
+	.nmsl{
+		background-color: #fcffcc
+	}
+</style>
+<script>
+	var lastBtnId = -999;
+	var currGameId = 1;
+	var lastGameCond = new Array(0,0,0,0);
+	var currGameCond = new Array(0,0,0,0);
+	function update(id)
+	{
+		var btn = document.getElementById("Btn" + String(id));
+		//console.log(btn);
+		btn.value = String(currGameCond[id]);
+	}
+	function press(currBtnId)
+	{
+		if(lastBtnId == -999)
+			lastBtnId = currBtnId;
+		else if(lastBtnId <= 0 && currBtnId > 0)
+		{
+			// first pos then score
+			currGameCond[-lastBtnId] += currBtnId;
+			update(-lastBtnId);
+			// clear
+			lastBtnId = -999;
+		}
+		else if(lastBtnId > 0 && currBtnId <= 0)
+		{
+			// first score then pos
+			currGameCond[-currBtnId] += lastBtnId;
+			update(-currBtnId);
+			// clear
+			lastBtnId = -999;
+		}
+		else
+			lastBtnId = currBtnId;
+	}
+	function record()
+	{
+		//check if toatl 26
+		var tt = 0;
+		for(var i=0; i<=3; i++) tt+=currGameCond[i];
+		if(tt!=26) 
+		{
+			window.alert("Total is not 26!!!");
+			return;
+		}
+		//shoot the moon
+		for(var i=0; i<=3; i++)
+		{
+			if(currGameCond[i] == 26)
+			{
+				currGameCond[i] = 0;
+				currGameCond[(i+1)%4] = 26;
+				currGameCond[(i+2)%4] = 26;
+				currGameCond[(i+3)%4] = 26;
+				//console.log(currGameCond);
+				break;
+			}
+		}
+		//add a line of table
+		var tr = document.createElement('tr');
+		var td0 = document.createElement('td');
+		td0.innerText = String(currGameId);
+		tr.appendChild(td0);
+		if(currGameId == 1)
+		{
+			for(var i=0;i<=3;i++)
+			{
+				var td = document.createElement('td');
+				td.innerText = String(currGameCond[i]);
+				tr.appendChild(td);
+			}
+		}
+		else
+		{
+			for(var i=0;i<=3;i++)
+			{
+				var td = document.createElement('td');
+				td.innerText = String(lastGameCond[i] + currGameCond[i]) + '  (+' + String(currGameCond[i]) + ')';
+				tr.appendChild(td);
+			}
+		}
+		currGameId++;
+		document.getElementById('scoreboard').appendChild(tr);
+		// clear
+		for(var i=0;i<=3;i++)
+		{
+			lastGameCond[i] += currGameCond[i];
+			currGameCond[i] = 0;
+			update(i);
+		}
+	}
+</script>
+<title>AyaseLive!</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-fixed-top mb-1">
+<strong class="navbar-brand">Hearts Scoreboard</strong>
+<a class="navbar-brand navbar-right" href="http://spadeayase.cf">Home</a>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-lg-11">
+<!-- content... -->
+<br /><br /><br /><br />
+<div class="card" >
+<div class="card-block">
+
+<div class="row mt-2">
+
+<div class="col-xs-4"></div>
+<div class="col-xs-4 miku">North&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" class="btn" value="0" onclick="press(0)" id="Btn0" />
+</div>
+<div class="col-xs-4"></div>
+
+</div>
+
+<div class="row mt-2">
+
+<div class="col-xs-4 miku">West&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" class="btn" value="0" onclick="press(-1)" id="Btn1" />
+</div>
+<div class="col-xs-4"></div>
+<div class="col-xs-4 miku">East&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" class="btn" value="0" onclick="press(-2)" id="Btn2"/>
+</div>
+
+</div>
+
+<div class="row mt-2">
+
+<div class="col-xs-4"></div>
+<div class="col-xs-4 miku">South&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" class="btn" value="0" onclick="press(-3)" id="Btn3" />
+</div>
+<div class="col-xs-4"></div>
+
+</div>
+<br />
+<div class="row mt-1">
+
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="13" onclick="press(13)"></div>
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="1" onclick="press(1)"></div>
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="2" onclick="press(2)"></div>
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="3" onclick="press(3)"></div>
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="4" onclick="press(4)"></div>
+<div class="col-xs-2"><input type="button" class="btn btn-block" value="√" onclick="record()"></div>
+
+</div>
+<br /><br />
+<table id="scoreboard">
+	<tr>
+		<td class="col-xs-2">Game</td>
+		<td class="col-xs-2">North</td>
+		<td class="col-xs-2">West</td>
+		<td class="col-xs-2">East</td>
+		<td class="col-xs-2">South</td>
+	</tr>
+</table>
+<br />
+</div>
+</div>
+
+<!-- end content-->
+</div>
+</div>
+</div>
+
+<footer class="footer">
+<div class="container">
+ <p class="text-xs-right">by SpadeAyase</p>
+</div>
+</footer>
+<p></p>
+<p id="page-top"><a href="#top">TOP</a></p>
+
+</body>
+</html>
