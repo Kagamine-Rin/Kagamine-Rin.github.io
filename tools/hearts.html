@@ -19,6 +19,44 @@
 	var currGameId = 1;
 	var lastGameCond = new Array(0,0,0,0);
 	var currGameCond = new Array(0,0,0,0);
+	var saveStatus = new Object();
+	var trs = [];
+	window.onload = function()
+	{
+		if(window.localStorage.HeartsStatus)
+		{
+			var v = JSON.parse(window.localStorage.HeartsStatus);
+			lastBtnId = v.lastBtnId;
+			lastGameCond = v.lastGameCond;
+			currGameCond = v.currGameCond;
+			currGameId = v.currGameId;
+			for(var i=0;i<4;i++) update(i);
+			try
+			{
+				if(v.trs) trs = v.trs;
+				trs.forEach(function(x)
+				{
+					var u = document.createElement('tr');
+					u.innerHTML = x;
+					document.getElementById('scoreboard').appendChild(u);
+				});
+			}
+			catch(e)
+			{
+				console.log("No info of tr");
+			}
+		}
+	}
+	window.onbeforeunload = function()
+	{
+		//window.alert("!?")
+		saveStatus.lastBtnId = lastBtnId;
+		saveStatus.currGameId = currGameId;
+		saveStatus.lastGameCond = lastGameCond;
+		saveStatus.currGameCond = currGameCond;
+		saveStatus.trs = trs;
+		window.localStorage.HeartsStatus = JSON.stringify(saveStatus);
+	}
 	function update(id)
 	{
 		var btn = document.getElementById("Btn" + String(id));
@@ -96,6 +134,7 @@
 		}
 		currGameId++;
 		document.getElementById('scoreboard').appendChild(tr);
+		trs.push(tr.innerHTML);
 		// clear
 		for(var i=0;i<=3;i++)
 		{
@@ -103,6 +142,23 @@
 			currGameCond[i] = 0;
 			update(i);
 		}
+	}
+	function clean()
+	{
+		lastBtnId = -999;
+		currGameId = 1;
+		lastGameCond = new Array(0,0,0,0);
+		currGameCond = new Array(0,0,0,0);
+		saveStatus = new Object();
+		trs = [];
+		var tbl = document.getElementById('scoreboard');
+		var hd = document.getElementById('tableHead');
+		while(tbl.hasChildNodes())
+		{
+			tbl.removeChild(tbl.firstChild);
+		}
+		tbl.appendChild(hd);
+		for(var i=0; i<=3; i++) update(i);
 	}
 </script>
 <title>Hearts Calculator</title>
@@ -165,9 +221,10 @@
 <div class="col-xs-2"><input type="button" class="btn btn-block" value="√" onclick="record()"></div>
 
 </div>
+
 <br /><br />
 <table id="scoreboard">
-	<tr>
+	<tr id="tableHead">
 		<td class="col-xs-2">Game</td>
 		<td class="col-xs-2">North</td>
 		<td class="col-xs-2">West</td>
@@ -176,6 +233,12 @@
 	</tr>
 </table>
 <br />
+<div class="row mt-1">
+
+<div class="col-xs-7"></div>
+<div class="col-xs-5"><input type="button" class="btn btn-block" value="Clear" onclick="clean()"></div>
+
+</div>
 </div>
 </div>
 
